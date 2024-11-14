@@ -16,3 +16,5 @@ RoxygenNote: 7.3.2
 Imports: 
     cli,
     rlang
+URL: https://github.com/louisaslett/maths.genealogy
+BugReports: https://github.com/louisaslett/maths.genealogy/issues
