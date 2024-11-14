@@ -41,25 +41,12 @@
 #' # Then use this to fetch genealogy (just descendents for speed)
 #' # TODO
 search_id <- function(family = NULL, given = NULL, middle = NULL, university = NULL, year = NULL, thesis_keyword = NULL, country = NULL, discipline = NULL) {
-  if (all(sapply(list(family, given, middle, university, year, thesis_keyword, country, discipline), is.null))) {
-    cli::cli_abort(c("x" = "At least one argument must be provided."))
+  if (all(vapply(list(family, given, middle, university, year, thesis_keyword, country, discipline), is.null, TRUE))) {
+    cli::cli_abort(c(x = "At least one argument must be provided."))
   }
 
-  url <- "https://mathgenealogy.org/query-prep.php"
-  params <- list(
-    family_name = family,
-    given_name = given,
-    other_names = middle,
-    school = university,
-    year = year,
-    thesis = thesis_keyword,
-    country = country,
-    msc = discipline
-  )
-  params <- params[!sapply(params, is.null)]
-
-  resp <- httr2::request(url) |>
-    httr2::req_headers(`User-Agent` = paste0("R/", R.version$major, ".", R.version$minor, " ",
+  resp <- httr2::request("https://mathgenealogy.org/query-prep.php") |>
+    httr2::req_headers(`User-Agent` = paste0("R/", R.version[["major"]], ".", R.version[["minor"]], " ",
                                              "maths.genealogy/", utils::packageVersion("maths.genealogy"))) |>
     httr2::req_body_form(family_name = family,
                          given_name = given,
@@ -71,25 +58,25 @@ search_id <- function(family = NULL, given = NULL, middle = NULL, university = N
                          msc = discipline) |>
     httr2::req_perform()
 
-  if(httr2::resp_is_error(resp)) {
-    cli::cli_abort(c("x" = "Failed to perform the HTTP POST request."))
+  if (httr2::resp_is_error(resp)) {
+    cli::cli_abort(c(x = "Failed to perform the HTTP POST request."))
   }
 
   html <- httr2::resp_body_html(resp)
 
-  links <- rvest::html_elements(html, '#paddingWrapper a')
-  if(length(links) == 0) {
-    cli::cli_abort(c("x" = "No matches found for this search."))
+  links <- rvest::html_elements(html, "#paddingWrapper a")
+  if (length(links) == 0L) {
+    cli::cli_abort(c(x = "No matches found for this search."))
   }
   ids <- rvest::html_attr(links, "href") |>
     sub(".*id=(\\d+).*", "\\1", x = _) |>
     stats::na.omit()
   names <- rvest::html_text(links)
 
-  universities <- rvest::html_elements(html, '#paddingWrapper td:nth-child(2)') |>
+  universities <- rvest::html_elements(html, "#paddingWrapper td:nth-child(2)") |>
     rvest::html_text()
 
-  years <- rvest::html_elements(html, '#paddingWrapper td:nth-child(3)') |>
+  years <- rvest::html_elements(html, "#paddingWrapper td:nth-child(3)") |>
     rvest::html_text()
 
   data.frame(
