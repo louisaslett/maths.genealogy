@@ -1,0 +1,18 @@
+Package: maths.genealogy
+Title: Mathematics Genealogy Data
+Version: 0.0.1
+Authors@R: 
+    person("Louis", "Aslett", role = c("aut", "cre"),
+           email = "louis.aslett@durham.ac.uk",
+           comment = c(ORCID = "0000-0003-2211-233X"))
+Description: Query and extract genealogical data from The Mathematics Genealogy
+    Project <https://mathgenealogy.org/>. Data is gathered from the WebSocket
+    server run by the geneagrapher-core project
+    <https://github.com/davidalber/geneagrapher-core>. 
+License: GPL (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    cli,
+    rlang
