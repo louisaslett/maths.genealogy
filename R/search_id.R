@@ -70,22 +70,36 @@ search_id <- function(family = NULL, given = NULL, middle = NULL, university = N
   }
 
   # Query Mathematics Genealogy Project
-  resp <- httr2::request("https://mathgenealogy.org/query-prep.php") |>
-    httr2::req_headers(`User-Agent` = paste0("R/", R.version[["major"]], ".", R.version[["minor"]], " ",
-                                             "maths.genealogy/", utils::packageVersion("maths.genealogy"))) |>
-    httr2::req_body_form(family_name = family,
-                         given_name = given,
-                         other_names = middle,
-                         school = university,
-                         year = year,
-                         thesis = thesis_keyword,
-                         country = country,
-                         msc = discipline) |>
-    httr2::req_perform()
-
-  if (httr2::resp_is_error(resp)) {
-    cli::cli_abort(c(x = "Failed to perform the HTTP POST request."))
-  }
+  rlang::try_fetch(
+    {
+      resp <- httr2::request("https://mathgenealogy.org/query-prep.php") |>
+        httr2::req_headers(`User-Agent` = get_user_agent()) |>
+        httr2::req_body_form(family_name = family,
+                             given_name = given,
+                             other_names = middle,
+                             school = university,
+                             year = year,
+                             thesis = thesis_keyword,
+                             country = country,
+                             msc = discipline) |>
+        httr2::req_perform()
+    },
+    error = function(e) {
+      if (inherits(e, "httr2_failure")) {
+        cli::cli_abort(c(x = "Please check your internet connection. If that is working, check whether the Maths Genealogy Project is currently down: {.url https://mathgenealogy.org/} -- if both are ok, please file a detailed reproducible bug report {.url https://github.com/louisaslett/maths.genealogy/issues}"),
+                       parent = e,
+                       call = rlang::caller_env())
+      } else if (inherits(e, "httr2_http")) {
+        cli::cli_abort(c(x = "There appears to be a problem at the Maths Genealogy Project. Please try your search directly at {.url https://mathgenealogy.org/} -- if your search works on the site, then please file a detailed reproducible bug report for this package at {.url https://github.com/louisaslett/maths.genealogy/issues}"),
+                       parent = e,
+                       call = rlang::caller_env())
+      } else {
+        cli::cli_abort(c(x = "Unknown error. Please file a detailed reproducible bug report for this package at {.url https://github.com/louisaslett/maths.genealogy/issues}"),
+                       parent = e,
+                       call = rlang::caller_env())
+      }
+    }
+  )
 
   html <- httr2::resp_body_html(resp)
 
