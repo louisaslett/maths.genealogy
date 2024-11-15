@@ -35,10 +35,10 @@ search_id(
 \value{
 Data frame containing all matches against the provided search terms, with columns:
 \describe{
-\item{\code{id}}{Mathematician ID (as required by \code{\link[=get_genealogy]{get_genealogy()}})}
-\item{\code{name}}{The full name (surname first) of the mathematician}
-\item{\code{university}}{The institution at which PhD was obtained}
-\item{\code{year}}{The year PhD was completed}
+\item{\code{id}}{Mathematician ID (as required by \code{\link[=get_genealogy]{get_genealogy()}});}
+\item{\code{name}}{The full name (surname first) of the mathematician;}
+\item{\code{university}}{The institution at which PhD was obtained;}
+\item{\code{year}}{The year PhD was completed.}
 }
 }
 \description{
@@ -48,6 +48,9 @@ Perform an online search using information about an individual mathematician to 
 Any one or more of the listed arguments can be provided.
 This will trigger an online search against the live \href{https://mathgenealogy.org/}{Mathematics Genealogy Project} database, so please be considerate and do not spam queries.
 All the information returned by a standard search on the website is gathered into a data frame and returned, enabling programmatic access to the data.
+
+If you cannot find the individual you are looking for, it could be that they are not in the \href{https://mathgenealogy.org/}{Mathematics Genealogy Project} database.
+New data can be submitted by following the instructions in the "How to submit updates" section at \url{https://mathgenealogy.org/submit.php}.
 }
 \examples{
 # Search for the package author

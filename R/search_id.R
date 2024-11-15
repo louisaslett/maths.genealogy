@@ -6,6 +6,9 @@
 #' This will trigger an online search against the live [Mathematics Genealogy Project](https://mathgenealogy.org/) database, so please be considerate and do not spam queries.
 #' All the information returned by a standard search on the website is gathered into a data frame and returned, enabling programmatic access to the data.
 #'
+#' If you cannot find the individual you are looking for, it could be that they are not in the [Mathematics Genealogy Project](https://mathgenealogy.org/) database.
+#' New data can be submitted by following the instructions in the "How to submit updates" section at <https://mathgenealogy.org/submit.php>.
+#'
 #' @param family
 #'        a character(1) string with the family names.
 #' @param given
@@ -26,10 +29,10 @@
 #' @return
 #' Data frame containing all matches against the provided search terms, with columns:
 #' \describe{
-#'   \item{`id`}{Mathematician ID (as required by [get_genealogy()])}
-#'   \item{`name`}{The full name (surname first) of the mathematician}
-#'   \item{`university`}{The institution at which PhD was obtained}
-#'   \item{`year`}{The year PhD was completed}
+#'   \item{`id`}{Mathematician ID (as required by [get_genealogy()]);}
+#'   \item{`name`}{The full name (surname first) of the mathematician;}
+#'   \item{`university`}{The institution at which PhD was obtained;}
+#'   \item{`year`}{The year PhD was completed.}
 #' }
 #'
 #' @export
@@ -41,10 +44,32 @@
 #' # Then use this to fetch genealogy (just descendents for speed)
 #' # TODO
 search_id <- function(family = NULL, given = NULL, middle = NULL, university = NULL, year = NULL, thesis_keyword = NULL, country = NULL, discipline = NULL) {
+  # Input checks
   if (all(vapply(list(family, given, middle, university, year, thesis_keyword, country, discipline), is.null, TRUE))) {
     cli::cli_abort(c(x = "At least one argument must be provided."))
   }
+  check_str(family, 2L)
+  check_str(given, 1L)
+  check_str(middle, 1L)
+  check_str(university, 2L)
+  err <- checkmate::check_integerish(year, lower = 0L, upper = as.integer(format(Sys.Date(), "%Y")), any.missing = FALSE, len = 1L)
+  if (!is.null(year) && !identical(err, TRUE)) {
+    cli::cli_abort(c(x = "{.arg year} argument: {err}"))
+  }
+  check_str(thesis_keyword, 2L)
+  check_str(country, 2L)
+  err <- checkmate::check_choice(discipline, disciplines()[["id"]])
+  if (!is.null(discipline) && !identical(err, TRUE)) {
+    cli::cli_abort(c(x = "{.arg discipline} argument: {err}"))
+  }
+  rm(err)
 
+  # Input modification
+  if (!is.null(discipline)) {
+    discipline <- sprintf("%02d", discipline)
+  }
+
+  # Query Mathematics Genealogy Project
   resp <- httr2::request("https://mathgenealogy.org/query-prep.php") |>
     httr2::req_headers(`User-Agent` = paste0("R/", R.version[["major"]], ".", R.version[["minor"]], " ",
                                              "maths.genealogy/", utils::packageVersion("maths.genealogy"))) |>
