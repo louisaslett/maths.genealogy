@@ -36,6 +36,7 @@ connect_ws <- function(ws, timeout = 4L) {
   cli::cli_progress_step("Connecting to WebSocket server", spinner = TRUE)
   ws[["connect"]]()
   cli::cli_progress_update()
+
   connected <- FALSE
   end <- Sys.time() + timeout
   while (!connected && Sys.time() < end) {
@@ -51,7 +52,9 @@ connect_ws <- function(ws, timeout = 4L) {
     }
   }
 
+  cli::cli_progress_done(result = ifelse(connected, "done", "failed"))
+
   if (!connected) {
-    cli::cli_alert(c(x = "Unable to establish WebSocket connection"))
+    cli::cli_abort(c(x = "Unable to establish WebSocket connection"))
   }
 }
