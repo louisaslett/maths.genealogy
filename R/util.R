@@ -1,4 +1,5 @@
-# For checking an argument to a function.
+## For checking an argument to a function.
+
 # Checks that `s` is a character(1) string with at least `min.chars` characters.
 # Throws error in caller's environment if not, referencing the name of what was passed in the error message.
 check_str <- function(s, min.chars) {
@@ -10,10 +11,47 @@ check_str <- function(s, min.chars) {
   c(name, err)
 }
 
+# Check it is a vector, not a matrix/list/etc
+check_vec <- function(x) {
+  name <- deparse(substitute(x))
+  err <- checkmate::check_atomic_vector(x)
+  if (!identical(err, TRUE)) {
+    cli::cli_abort(c(x = "{.arg {name}} argument: {err}"), call = rlang::caller_env(), .frame = rlang::caller_env())
+  }
+  c(name, err)
+}
+
 
 
 # Construct a User-Agent string for sending on HTTP/WebSocket requests, following the format requested in https://github.com/davidalber/geneagrapher/issues/38
 get_user_agent <- function() {
   paste0("R/", R.version[["major"]], ".", R.version[["minor"]], " ",
          utils::packageName(), "/", utils::packageVersion(utils::packageName()))
+}
+
+
+
+# Polling for WebSocket connection, per {websocket} docs https://github.com/rstudio/websocket/issues/40
+connect_ws <- function(ws, timeout = 4L) {
+  cli::cli_progress_step("Connecting to WebSocket server", spinner = TRUE)
+  ws[["connect"]]()
+  cli::cli_progress_update()
+  connected <- FALSE
+  end <- Sys.time() + timeout
+  while (!connected && Sys.time() < end) {
+    later::run_now(0.05)
+
+    ready_state <- ws[["readyState"]]()
+    if (ready_state == 0L) {
+      cli::cli_progress_update()
+    } else if (ready_state == 1L) {
+      connected <- TRUE
+    } else {
+      break
+    }
+  }
+
+  if (!connected) {
+    cli::cli_alert(c(x = "Unable to establish WebSocket connection"))
+  }
 }

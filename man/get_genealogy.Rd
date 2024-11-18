@@ -4,20 +4,22 @@
 \alias{get_genealogy}
 \title{Retrieve genealogy tree by mathematician ID}
 \usage{
-get_genealogy(id, ancestors = TRUE, descendents = TRUE)
+get_genealogy(id, ancestors = TRUE, descendants = TRUE)
 }
 \arguments{
 \item{id}{vector of integer IDs of mathematicians for whom the genealogy should be retrieved}
 
-\item{ancestors}{logical indicating whether to include the genealogy backward to include all ancestors, defaults to \code{TRUE}.}
+\item{ancestors}{logical indicating whether to include the genealogy backward to include all ancestors, defaults to \code{TRUE}.
+This can be a single logical which then applies to all mathematicians referenced in the \code{id} argument, or it can be a vector of the same length as \code{id} providing different selection for each individual.}
 
-\item{descendents}{logical indicating whether to include the genealogy forward to include all descendents, defaults to \code{TRUE}.}
+\item{descendants}{logical indicating whether to include the genealogy forward to include all descendants, defaults to \code{TRUE}.
+This can be a single logical which then applies to all mathematicians referenced in the \code{id} argument, or it can be a vector of the same length as \code{id} providing different selection for each individual.}
 }
 \value{
 A joint genealogy object
 }
 \description{
-Queries the genealogy of a set of mathematicians by their ID in the \href{https://mathgenealogy.org/}{Mathematics Genealogy Project}
+Queries the genealogy of a single or set of mathematicians by their ID in the \href{https://mathgenealogy.org/}{Mathematics Genealogy Project}.
 }
 \examples{
 # TODO
