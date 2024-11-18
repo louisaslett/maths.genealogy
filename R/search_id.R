@@ -41,7 +41,7 @@
 #' # Search for the package author
 #' ids <- search_id("Aslett", "Louis")
 #'
-#' # Then use this to fetch genealogy (just descendents for speed)
+#' # Then use this to fetch genealogy (just descendants for speed)
 #' # TODO
 search_id <- function(family = NULL, given = NULL, middle = NULL, university = NULL, year = NULL, thesis_keyword = NULL, country = NULL, discipline = NULL) {
   # Input checks

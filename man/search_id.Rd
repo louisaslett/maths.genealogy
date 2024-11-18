@@ -56,6 +56,6 @@ New data can be submitted by following the instructions in the "How to submit up
 # Search for the package author
 ids <- search_id("Aslett", "Louis")
 
-# Then use this to fetch genealogy (just descendents for speed)
+# Then use this to fetch genealogy (just descendants for speed)
 # TODO
 }
