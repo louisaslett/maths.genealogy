@@ -91,7 +91,7 @@ get_genealogy <- function(id, ancestors = TRUE, descendants = TRUE) {
       q <- res[["payload"]][["queued"]]
       f <- res[["payload"]][["fetching"]]
       d <- res[["payload"]][["done"]]
-      assign("msg", paste0("Found ", f + d, " records (", q, " in queue). Currently ", d, "/", f + d, "fetched ..."), envir = parent.env(environment()))
+      assign("msg", paste0("Found ", f + d, " records (", q, " in queue). Currently ", d, "/", f + d, " fetched ..."), envir = parent.env(environment()))
     } else if (res[["kind"]] == "graph") {
       assign("done", TRUE, envir = parent.env(environment()))
       assign("msg", "Full genealogy retrieved", envir = parent.env(environment()))
