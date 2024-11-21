@@ -2,4 +2,5 @@
 
 export(disciplines)
 export(get_genealogy)
+export(plot_grviz)
 export(search_id)
