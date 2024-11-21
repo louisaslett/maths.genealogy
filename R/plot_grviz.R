@@ -1,6 +1,6 @@
 #' @export
 plot_grviz <- function(g) {
-
+  rlang::check_installed(c("DiagrammeR", "DiagrammeRsvg", "svgPanZoom"), reason = "in order to produce Graphviz plots.")
 
   graph <- get_edges_nodes(g)
 

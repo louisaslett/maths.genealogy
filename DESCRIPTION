@@ -5,14 +5,12 @@ Authors@R:
     person("Louis", "Aslett", role = c("aut", "cre"),
            email = "louis.aslett@durham.ac.uk",
            comment = c(ORCID = "0000-0003-2211-233X"))
-Description: Query and extract genealogical data from The Mathematics Genealogy
-    Project <https://mathgenealogy.org/>. Data is gathered from the WebSocket
-    server run by the geneagrapher-core project
+Description: Query, extract, and plot genealogical data from The Mathematics
+    Genealogy Project <https://mathgenealogy.org/>. Data is gathered from the
+    WebSocket server run by the 'geneagrapher-core' project
     <https://github.com/davidalber/geneagrapher-core>. 
-License: GPL (>= 2)
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+URL: https://github.com/louisaslett/maths.genealogy
+BugReports: https://github.com/louisaslett/maths.genealogy/issues
 Imports: 
     checkmate,
     cli,
@@ -22,5 +20,11 @@ Imports:
     rlang,
     rvest,
     websocket
-URL: https://github.com/louisaslett/maths.genealogy
-BugReports: https://github.com/louisaslett/maths.genealogy/issues
+Suggests: 
+    DiagrammeR,
+    DiagrammeRsvg,
+    svgPanZoom
+License: GPL (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
