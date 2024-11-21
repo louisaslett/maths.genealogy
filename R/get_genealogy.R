@@ -130,5 +130,8 @@ get_genealogy <- function(id, ancestors = TRUE, descendants = TRUE) {
   cli::cli_progress_done() # must end manually or else msg out of scope
   rm(msg)
 
-  return(res)
+  res2 <- res[["nodes"]]
+  attr(res2, "start_nodes") <- res[["start_nodes"]]
+  class(res2) <- c("genealogy", class(res2))
+  return(res2)
 }
