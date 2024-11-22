@@ -18,11 +18,11 @@ get_edges_nodes <- function(g) {
     queue <- queue[-1L]
 
     nodes <- c(nodes,
-               setNames(paste0(x[["name"]],
-                               ifelse(!is.null(x[["institution"]]) | !is.null(x[["year"]]), "\\n", ""),
-                               ifelse(!is.null(x[["institution"]]), paste0(x[["institution"]], " "), ""),
-                               ifelse(!is.null(x[["year"]]), paste0("(", x[["year"]], ")"), "")),
-                        x[["id"]]))
+               stats::setNames(paste0(x[["name"]],
+                                      ifelse(!is.null(x[["institution"]]) | !is.null(x[["year"]]), "\\n", ""),
+                                      ifelse(!is.null(x[["institution"]]), paste0(x[["institution"]], " "), ""),
+                                      ifelse(!is.null(x[["year"]]), paste0("(", x[["year"]], ")"), "")),
+                               x[["id"]]))
     if (length(x[["descendants"]]) == 0L) {
       next
     }
@@ -44,11 +44,11 @@ get_edges_nodes <- function(g) {
     queue <- queue[-1L]
 
     nodes <- c(nodes,
-               setNames(paste0(x[["name"]],
-                               ifelse(!is.null(x[["institution"]]) | !is.null(x[["year"]]), "\\n", ""),
-                               ifelse(!is.null(x[["institution"]]), paste0(x[["institution"]], " "), ""),
-                               ifelse(!is.null(x[["year"]]), paste0("(", x[["year"]], ")"), "")),
-                        x[["id"]]))
+               stats::setNames(paste0(x[["name"]],
+                                      ifelse(!is.null(x[["institution"]]) | !is.null(x[["year"]]), "\\n", ""),
+                                      ifelse(!is.null(x[["institution"]]), paste0(x[["institution"]], " "), ""),
+                                      ifelse(!is.null(x[["year"]]), paste0("(", x[["year"]], ")"), "")),
+                               x[["id"]]))
     if (length(x[["advisors"]]) == 0L) {
       next
     }
