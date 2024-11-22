@@ -23,12 +23,18 @@ get_edges_nodes <- function(g) {
                                       ifelse(!is.null(x[["institution"]]), paste0(x[["institution"]], " "), ""),
                                       ifelse(!is.null(x[["year"]]), paste0("(", x[["year"]], ")"), "")),
                                x[["id"]]))
-    if (length(x[["descendants"]]) == 0L) {
+    # Check descendants
+    # first, even if there are descendants, it does does not mean they are in
+    # our query set (depending on search choices), so subset only to those we
+    # have data on first
+    descendants <- x[["descendants"]][!vapply(g[as.character(x[["descendants"]])], is.null, TRUE, USE.NAMES = FALSE)]
+    if (length(descendants) == 0L) {
       next
     }
-    queue <- c(queue, as.character(x[["descendants"]]))
-    edges_from <- c(edges_from, list(rep(x[["id"]], length(x[["descendants"]]))))
-    edges_to <- c(edges_to, list(x[["descendants"]]))
+
+    queue <- c(queue, as.character(descendants))
+    edges_from <- c(edges_from, list(rep(x[["id"]], length(descendants))))
+    edges_to <- c(edges_to, list(descendants))
   }
 
   # Ancestors
@@ -49,12 +55,18 @@ get_edges_nodes <- function(g) {
                                       ifelse(!is.null(x[["institution"]]), paste0(x[["institution"]], " "), ""),
                                       ifelse(!is.null(x[["year"]]), paste0("(", x[["year"]], ")"), "")),
                                x[["id"]]))
-    if (length(x[["advisors"]]) == 0L) {
+    # Check advisors
+    # first, even if there are advisors, it does does not mean they are in
+    # our query set (depending on search choices), so subset only to those we
+    # have data on first
+    advisors <- x[["advisors"]][!vapply(g[as.character(x[["advisors"]])], is.null, TRUE, USE.NAMES = FALSE)]
+    if (length(advisors) == 0L) {
       next
     }
-    queue <- c(queue, as.character(x[["advisors"]]))
-    edges_from <- c(edges_from, list(x[["advisors"]]))
-    edges_to <- c(edges_to, list(rep(x[["id"]], length(x[["advisors"]]))))
+
+    queue <- c(queue, as.character(advisors))
+    edges_from <- c(edges_from, list(advisors))
+    edges_to <- c(edges_to, list(rep(x[["id"]], length(advisors))))
   }
 
   return(list(nodes = nodes[!duplicated(nodes)],
