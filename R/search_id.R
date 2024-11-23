@@ -10,21 +10,21 @@
 #' New data can be submitted by following the instructions in the "How to submit updates" section at <https://mathgenealogy.org/submit.php>.
 #'
 #' @param family
-#'        a character(1) string with the family names.
+#'        a `character(1)` string with the family names.
 #' @param given
-#'        a character(1) string with the given names.
+#'        a `character(1)` string with the given names.
 #' @param middle
-#'        a character(1) string with the collapsed middle name(s).
+#'        a `character(1)` string with the collapsed middle name(s).
 #' @param university
-#'        a character(1) string with the University at which PhD studied.
+#'        a `character(1)` string with the University at which PhD studied.
 #' @param year
-#'        a character(1) string or integer(1) with the year of completion.
+#'        a `character(1)` string or `integer(1)` with the year of completion.
 #' @param thesis_keyword
-#'        a character(1) string with keyword(s) in the PhD thesis title.
+#'        a `character(1)` string with keyword(s) in the PhD thesis title.
 #' @param country
-#'        a character(1) string with the country of study.
+#'        a `character(1)` string with the country of study.
 #' @param discipline
-#'        an integer(1) with the mathematical sub-discipline code.
+#'        an `integer(1)` with the mathematical sub-discipline code.
 #'
 #' @return
 #' Data frame containing all matches against the provided search terms, with columns:

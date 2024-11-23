@@ -16,21 +16,21 @@ search_id(
 )
 }
 \arguments{
-\item{family}{a character(1) string with the family names.}
+\item{family}{a \code{character(1)} string with the family names.}
 
-\item{given}{a character(1) string with the given names.}
+\item{given}{a \code{character(1)} string with the given names.}
 
-\item{middle}{a character(1) string with the collapsed middle name(s).}
+\item{middle}{a \code{character(1)} string with the collapsed middle name(s).}
 
-\item{university}{a character(1) string with the University at which PhD studied.}
+\item{university}{a \code{character(1)} string with the University at which PhD studied.}
 
-\item{year}{a character(1) string or integer(1) with the year of completion.}
+\item{year}{a \code{character(1)} string or \code{integer(1)} with the year of completion.}
 
-\item{thesis_keyword}{a character(1) string with keyword(s) in the PhD thesis title.}
+\item{thesis_keyword}{a \code{character(1)} string with keyword(s) in the PhD thesis title.}
 
-\item{country}{a character(1) string with the country of study.}
+\item{country}{a \code{character(1)} string with the country of study.}
 
-\item{discipline}{an integer(1) with the mathematical sub-discipline code.}
+\item{discipline}{an \code{integer(1)} with the mathematical sub-discipline code.}
 }
 \value{
 Data frame containing all matches against the provided search terms, with columns:

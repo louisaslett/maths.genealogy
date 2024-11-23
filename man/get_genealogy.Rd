@@ -7,16 +7,30 @@
 get_genealogy(id, ancestors = TRUE, descendants = TRUE)
 }
 \arguments{
-\item{id}{vector of integer IDs of mathematicians for whom the genealogy should be retrieved}
+\item{id}{\code{integer} vector of IDs of mathematicians for whom the genealogy should be retrieved}
 
-\item{ancestors}{logical indicating whether to include the genealogy backward to include all ancestors, defaults to \code{TRUE}.
-This can be a single logical which then applies to all mathematicians referenced in the \code{id} argument, or it can be a vector of the same length as \code{id} providing different selection for each individual.}
+\item{ancestors}{\code{logical} indicating whether to include the genealogy backward to include all ancestors, defaults to \code{TRUE}.
+This can be a single \code{logical(1)} which then applies to all mathematicians referenced in the \code{id} argument, or it can be a vector of the same length as \code{id} providing different selection for each individual.}
 
-\item{descendants}{logical indicating whether to include the genealogy forward to include all descendants, defaults to \code{TRUE}.
-This can be a single logical which then applies to all mathematicians referenced in the \code{id} argument, or it can be a vector of the same length as \code{id} providing different selection for each individual.}
+\item{descendants}{\code{logical} indicating whether to include the genealogy forward to include all descendants, defaults to \code{TRUE}.
+This can be a single \code{logical(1)} which then applies to all mathematicians referenced in the \code{id} argument, or it can be a vector of the same length as \code{id} providing different selection for each individual.}
 }
 \value{
-A joint genealogy object
+A list object of class \code{genealogy}.
+Each element of the list represents a mathematician in the genealogical tree.
+The name of the element is the mathematician's ID in the \href{https://mathgenealogy.org/}{Mathematics Genealogy Project}.
+Each element of the object is list with containing:
+\describe{
+\item{\code{id}}{\code{integer(1)} with Mathematician's ID;}
+\item{\code{name}}{\code{character(1)} containing the full name of the mathematician;}
+\item{\code{institution}}{\code{character(1)} containing the institution at which PhD was obtained;}
+\item{\code{year}}{\code{integer(1)} with the year their PhD was completed;}
+\item{\code{descendants}}{\code{integer} vector of IDs of any mathematicians who were supervised by this individual for their PhD;}
+\item{\code{advisors}}{\code{integer} vector of IDs of any mathematicians who were supervisors of this individual for their PhD.}
+}
+
+In addition, there is an attribute named \code{start_nodes} which contains an \code{integer} vector of IDs indicating the origin nodes used in the genealogical tree search that produced this object.
+In other words, the \code{id} argument as passed to this function.
 }
 \description{
 Queries the genealogy of a single or set of mathematicians by their ID in the \href{https://mathgenealogy.org/}{Mathematics Genealogy Project}.

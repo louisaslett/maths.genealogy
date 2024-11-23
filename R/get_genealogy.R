@@ -3,16 +3,30 @@
 #' Queries the genealogy of a single or set of mathematicians by their ID in the [Mathematics Genealogy Project](https://mathgenealogy.org/).
 #'
 #' @param id
-#'        vector of integer IDs of mathematicians for whom the genealogy should be retrieved
+#'        `integer` vector of IDs of mathematicians for whom the genealogy should be retrieved
 #' @param ancestors
-#'        logical indicating whether to include the genealogy backward to include all ancestors, defaults to `TRUE`.
-#'        This can be a single logical which then applies to all mathematicians referenced in the `id` argument, or it can be a vector of the same length as `id` providing different selection for each individual.
+#'        `logical` indicating whether to include the genealogy backward to include all ancestors, defaults to `TRUE`.
+#'        This can be a single `logical(1)` which then applies to all mathematicians referenced in the `id` argument, or it can be a vector of the same length as `id` providing different selection for each individual.
 #' @param descendants
-#'        logical indicating whether to include the genealogy forward to include all descendants, defaults to `TRUE`.
-#'        This can be a single logical which then applies to all mathematicians referenced in the `id` argument, or it can be a vector of the same length as `id` providing different selection for each individual.
+#'        `logical` indicating whether to include the genealogy forward to include all descendants, defaults to `TRUE`.
+#'        This can be a single `logical(1)` which then applies to all mathematicians referenced in the `id` argument, or it can be a vector of the same length as `id` providing different selection for each individual.
 #'
 #' @return
-#' A joint genealogy object
+#' A list object of class `genealogy`.
+#' Each element of the list represents a mathematician in the genealogical tree.
+#' The name of the element is the mathematician's ID in the [Mathematics Genealogy Project](https://mathgenealogy.org/).
+#' Each element of the object is list with containing:
+#' \describe{
+#'   \item{`id`}{`integer(1)` with Mathematician's ID;}
+#'   \item{`name`}{`character(1)` containing the full name of the mathematician;}
+#'   \item{`institution`}{`character(1)` containing the institution at which PhD was obtained;}
+#'   \item{`year`}{`integer(1)` with the year their PhD was completed;}
+#'   \item{`descendants`}{`integer` vector of IDs of any mathematicians who were supervised by this individual for their PhD;}
+#'   \item{`advisors`}{`integer` vector of IDs of any mathematicians who were supervisors of this individual for their PhD.}
+#' }
+#'
+#' In addition, there is an attribute named `start_nodes` which contains an `integer` vector of IDs indicating the origin nodes used in the genealogical tree search that produced this object.
+#' In other words, the `id` argument as passed to this function.
 #'
 #' @export
 #'
