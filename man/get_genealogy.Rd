@@ -38,3 +38,10 @@ Queries the genealogy of a single or set of mathematicians by their ID in the \h
 \examples{
 # TODO
 }
+\references{
+Alber, D. (2024). “'geneagrapher-core' package”, \url{https://github.com/davidalber/geneagrapher-core}
+
+Jackson, A. (2007). “A Labor of Love: The Mathematics Genealogy Project”, \emph{Notices of the AMS}, \strong{54}(8), 1002-1003. \url{https://www.ams.org/notices/200708/tx070801002p.pdf}
+
+Mulcahy, C. (2017). “The Mathematics Genealogy Project Comes of Age at Twenty-one”, \emph{Notices of the AMS}, \strong{64}(5), 466-470. \url{https://www.ams.org/journals/notices/201705/rnoti-p466.pdf}
+}

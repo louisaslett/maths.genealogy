@@ -9,6 +9,11 @@
 #' If you cannot find the individual you are looking for, it could be that they are not in the [Mathematics Genealogy Project](https://mathgenealogy.org/) database.
 #' New data can be submitted by following the instructions in the "How to submit updates" section at <https://mathgenealogy.org/submit.php>.
 #'
+#' @references
+#' Jackson, A. (2007). “A Labor of Love: The Mathematics Genealogy Project”, _Notices of the AMS_, **54**(8), 1002-1003. <https://www.ams.org/notices/200708/tx070801002p.pdf>
+#'
+#' Mulcahy, C. (2017). “The Mathematics Genealogy Project Comes of Age at Twenty-one”, _Notices of the AMS_, **64**(5), 466-470. <https://www.ams.org/journals/notices/201705/rnoti-p466.pdf>
+#'
 #' @param family
 #'        a `character(1)` string with the family names.
 #' @param given

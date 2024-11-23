@@ -39,5 +39,7 @@ Consider using \code{\link[=plot_grviz]{plot_grviz()}} if you want to see an ent
 # TODO
 }
 \references{
-Rutter, L., VanderPlas, S., Cook, D. and Graham, M.A. (2019). “ggenealogy: An R Package for Visualizing Genealogical Data.” \emph{Journal of Statistical Software}, \strong{89}(13), 1-31. \href{https://doi.org/10.18637/jss.v089.i13}{doi:10.18637/jss.v089.i13}.
+Rutter, L., VanderPlas, S., Cook, D. and Graham, M.A. (2019). “ggenealogy: An R Package for Visualizing Genealogical Data”, \emph{Journal of Statistical Software}, \strong{89}(13), 1-31. \href{https://doi.org/10.18637/jss.v089.i13}{doi:10.18637/jss.v089.i13}.
+
+Wickham, H. (2016). \emph{ggplot2: Elegant Graphics for Data Analysis}. Springer-Verlag New York.
 }

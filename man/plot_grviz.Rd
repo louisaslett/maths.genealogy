@@ -21,10 +21,21 @@ If no filename was specified, then an \code{htmlwidget} suitable for display in 
 Plots a genealogical tree either interactively or to PDF using the Graphviz layout engine.
 }
 \details{
-This function requires the \code{DiagrammeR}, \code{DiagrammeRsvg} and \code{svgPanZoom} packages to be installed.
-They are only "Suggests" dependencies this package supports multiple plotting.
+This function requires the \code{DiagrammeR}, \code{DiagrammeRsvg} and either \code{svgPanZoom} (interactive) or \code{rsvg} (pdf output) packages to be installed.
+They are only "Suggests" dependencies as this package supports multiple plotting options.
 The presence of these packages will be verified when the function is actually called, providing an opportunity to install them automatically if needed.
 }
 \examples{
 # TODO
+}
+\references{
+Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) \emph{Graph Drawing Software, Mathematics and Visualization}, 127-148. \href{https://doi.org/10.1007/978-3-642-18638-7_6}{10.1007/978-3-642-18638-7_6}.
+
+Iannone, R. and Roy, O. (2024). \emph{DiagrammeR: Graph/Network Visualization}. R package, \url{https://CRAN.R-project.org/package=DiagrammeR}.
+
+Iannone, R. (2016). \emph{DiagrammeRsvg: Export DiagrammeR Graphviz Graphs as SVG}. R package, \url{https://CRAN.R-project.org/package=DiagrammeRsvg}.
+
+Ooms, J. (2024). \emph{rsvg: Render SVG Images into PDF, PNG, (Encapsulated) PostScript, or Bitmap Arrays}. R package, \url{https://CRAN.R-project.org/package=rsvg}.
+
+Riutta, A., Tangelder, J., Russell, K., et al. (2020). \emph{svgPanZoom: R 'Htmlwidget' to Add Pan and Zoom to Almost any R Graphic}. R package, \url{https://CRAN.R-project.org/package=svgPanZoom}.
 }

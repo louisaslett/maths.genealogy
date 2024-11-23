@@ -12,7 +12,9 @@
 #' If this occurs, increase the `expand` argument greater than the default of `0.15`.
 #'
 #' @references
-#' Rutter, L., VanderPlas, S., Cook, D. and Graham, M.A. (2019). “ggenealogy: An R Package for Visualizing Genealogical Data.” _Journal of Statistical Software_, **89**(13), 1-31. [doi:10.18637/jss.v089.i13](https://doi.org/10.18637/jss.v089.i13).
+#' Rutter, L., VanderPlas, S., Cook, D. and Graham, M.A. (2019). “ggenealogy: An R Package for Visualizing Genealogical Data”, _Journal of Statistical Software_, **89**(13), 1-31. [doi:10.18637/jss.v089.i13](https://doi.org/10.18637/jss.v089.i13).
+#'
+#' Wickham, H. (2016). _ggplot2: Elegant Graphics for Data Analysis_. Springer-Verlag New York.
 #'
 #' @param g
 #'        an object of class `genealogy`, as returned by [get_genealogy()].

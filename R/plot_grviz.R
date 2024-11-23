@@ -2,9 +2,20 @@
 #'
 #' Plots a genealogical tree either interactively or to PDF using the Graphviz layout engine.
 #'
-#' This function requires the `DiagrammeR`, `DiagrammeRsvg` and `svgPanZoom` packages to be installed.
-#' They are only "Suggests" dependencies this package supports multiple plotting.
+#' This function requires the `DiagrammeR`, `DiagrammeRsvg` and either `svgPanZoom` (interactive) or `rsvg` (pdf output) packages to be installed.
+#' They are only "Suggests" dependencies as this package supports multiple plotting options.
 #' The presence of these packages will be verified when the function is actually called, providing an opportunity to install them automatically if needed.
+#'
+#' @references
+#' Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) _Graph Drawing Software, Mathematics and Visualization_, 127-148. [10.1007/978-3-642-18638-7_6](https://doi.org/10.1007/978-3-642-18638-7_6).
+#'
+#' Iannone, R. and Roy, O. (2024). _DiagrammeR: Graph/Network Visualization_. R package, <https://CRAN.R-project.org/package=DiagrammeR>.
+#'
+#' Iannone, R. (2016). _DiagrammeRsvg: Export DiagrammeR Graphviz Graphs as SVG_. R package, <https://CRAN.R-project.org/package=DiagrammeRsvg>.
+#'
+#' Ooms, J. (2024). _rsvg: Render SVG Images into PDF, PNG, (Encapsulated) PostScript, or Bitmap Arrays_. R package, <https://CRAN.R-project.org/package=rsvg>.
+#'
+#' Riutta, A., Tangelder, J., Russell, K., et al. (2020). _svgPanZoom: R 'Htmlwidget' to Add Pan and Zoom to Almost any R Graphic_. R package, <https://CRAN.R-project.org/package=svgPanZoom>.
 #'
 #' @param g
 #'        an object of class `genealogy`, as returned by [get_genealogy()].
