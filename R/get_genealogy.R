@@ -42,14 +42,16 @@ get_genealogy <- function(id, ancestors = TRUE, descendants = TRUE) {
   }
   # ancestors
   check_vec(ancestors)
-  ancestors <- ifelse(length(ancestors) == 1L, rep(ancestors, length(id)), ancestors)
+  if (length(ancestors) == 1L)
+    ancestors <- rep(ancestors, length(id))
   err <- checkmate::check_logical(ancestors, any.missing = FALSE, len = length(id))
   if (!identical(err, TRUE)) {
     cli::cli_abort(c(x = "{.arg id} argument: {err}"))
   }
   # descendants
   check_vec(descendants)
-  descendants <- ifelse(length(descendants) == 1L, rep(descendants, length(id)), descendants)
+  if (length(descendants) == 1L)
+    descendants <- rep(descendants, length(id))
   err <- checkmate::check_logical(descendants, any.missing = FALSE, len = length(id))
   if (!identical(err, TRUE)) {
     cli::cli_abort(c(x = "{.arg id} argument: {err}"))
@@ -76,7 +78,7 @@ get_genealogy <- function(id, ancestors = TRUE, descendants = TRUE) {
 
   done <- FALSE # flag to indicate no more messages incoming
   err <- FALSE # flag to indicate if an error is the reason we finished, since aborting inside a WebSocket message won't eject from get_genealogy call
-  msg <- "Fetching results ..." # for progress message
+  msg <- "\U0001F393 Fetching PhD data ..." # for progress message
   res <- NULL
   on_message <- function(event) {
     # ws will get either text or binary: confirm we got text
@@ -102,13 +104,12 @@ get_genealogy <- function(id, ancestors = TRUE, descendants = TRUE) {
 
     # Now, check if we have a progress update or the final graph
     if (res[["kind"]] == "progress") {
-      q <- res[["payload"]][["queued"]]
       f <- res[["payload"]][["fetching"]]
       d <- res[["payload"]][["done"]]
-      assign("msg", paste0("Found ", f + d, " records (", q, " in queue). Currently ", d, "/", f + d, " fetched ..."), envir = parent.env(environment()))
+      assign("msg", paste0("\U0001F393 Found ", f + d, " PhD records.  ", d, "/", f + d, " fetched so far ..."), envir = parent.env(environment()))
     } else if (res[["kind"]] == "graph") {
       assign("done", TRUE, envir = parent.env(environment()))
-      assign("msg", "Full genealogy retrieved", envir = parent.env(environment()))
+      assign("msg", "\U0001F393 Full genealogy retrieved", envir = parent.env(environment()))
       assign("res", res[["payload"]], envir = parent.env(environment()))
     } else {
       # signal to get_genealogy() that we're done due to an error

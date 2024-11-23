@@ -42,7 +42,7 @@ get_user_agent <- function() {
 
 # Polling for WebSocket connection, per {websocket} docs https://github.com/rstudio/websocket/issues/40
 connect_ws <- function(ws, timeout = 4L) {
-  cli::cli_progress_step("Connecting to WebSocket server", spinner = TRUE)
+  cli::cli_progress_step("Connecting to {.emph geneagrapher-core} WebSocket server", spinner = TRUE)
   ws[["connect"]]()
   cli::cli_progress_update()
 
