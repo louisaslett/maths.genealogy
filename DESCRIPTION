@@ -24,6 +24,7 @@ Imports:
 Suggests: 
     DiagrammeR,
     DiagrammeRsvg,
+    rsvg,
     svgPanZoom
 License: GPL (>= 2)
 Encoding: UTF-8

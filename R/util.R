@@ -21,6 +21,15 @@ check_vec <- function(x) {
   c(name, err)
 }
 
+# Check it is an object returned by get_genealogy()
+check_genealogy <- function(x) {
+  name <- deparse(substitute(x))
+  if (!checkmate::test_class(x, "genealogy")) {
+    cli::cli_abort(c(x = "{.arg {name}} must be a {.cls genealogy} object as returned by {.fun get_genealogy}."), call = rlang::caller_env(), .frame = rlang::caller_env())
+  }
+  name
+}
+
 
 
 # Construct a User-Agent string for sending on HTTP/WebSocket requests, following the format requested in https://github.com/davidalber/geneagrapher/issues/38
