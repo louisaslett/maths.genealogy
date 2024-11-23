@@ -56,7 +56,7 @@ digraph {
   # Either output to viewer or write to file
   if (nchar(file) == 0L) {
     # interactive plot
-    res <- svgPanZoom::svgPanZoom(svg, minZoom = 1.0, maxZoom = 20.0, width = "100%", height = "92vh")
+    res <- svgPanZoom::svgPanZoom(svg, minZoom = 1.0, maxZoom = 20.0, viewBox = FALSE, width = "100%", height = "92vh")
   } else {
     # write to pdf
     rlang::try_fetch(
