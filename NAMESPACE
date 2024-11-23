@@ -2,5 +2,7 @@
 
 export(disciplines)
 export(get_genealogy)
+export(plot_gg)
+export(plot_gg_path)
 export(plot_grviz)
 export(search_id)

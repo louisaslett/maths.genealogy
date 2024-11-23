@@ -1,6 +1,6 @@
 Package: maths.genealogy
 Title: Mathematics Genealogy Data
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: 
     person("Louis", "Aslett", role = c("aut", "cre"),
            email = "louis.aslett@durham.ac.uk",
@@ -11,6 +11,8 @@ Description: Query, extract, and plot genealogical data from The Mathematics
     <https://github.com/davidalber/geneagrapher-core>. 
 URL: https://github.com/louisaslett/maths.genealogy
 BugReports: https://github.com/louisaslett/maths.genealogy/issues
+Depends: 
+    R (>= 4.1.0)
 Imports: 
     checkmate,
     cli,
@@ -24,6 +26,8 @@ Imports:
 Suggests: 
     DiagrammeR,
     DiagrammeRsvg,
+    ggenealogy,
+    ggplot2,
     rsvg,
     svgPanZoom
 License: GPL (>= 2)

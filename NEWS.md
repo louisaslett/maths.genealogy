@@ -1,3 +1,8 @@
+# maths.genealogy 0.1.0
+
+* Add `plot_gg_path()` to create shortest path plots via `ggenealogy`.
+* Add `plot_gg()` to enable `ggenealogy` plots of ancestry local to a mathematician.
+
 # maths.genealogy 0.0.1
 
 * Add `plot_grviz()` to enable Graphviz plotting to both RStudio Viewer and PDF file.
