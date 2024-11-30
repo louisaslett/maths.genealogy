@@ -30,8 +30,6 @@ This function requires the \code{ggenealogy} package to be installed.
 It is only a "Suggests" dependency because this package supports multiple plotting approaches.
 The presence of this package will be verified when the function is actually called, providing an opportunity to install automatically if needed.
 
-If the input tree \code{g} is large, then \code{ggenealogy} can take some time to process it, even if \code{max_anc}/\code{max_des} are small.
-
 This function is not suitable for plotting very large whole genealogical trees.
 Consider using \code{\link[=plot_grviz]{plot_grviz()}} if you want to see an entire tree.
 }

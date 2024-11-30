@@ -6,8 +6,6 @@
 #' It is only a "Suggests" dependency because this package supports multiple plotting approaches.
 #' The presence of this package will be verified when the function is actually called, providing an opportunity to install automatically if needed.
 #'
-#' If the input tree `g` is large, then `ggenealogy` can take some time to process it, even if `max_anc`/`max_des` are small.
-#'
 #' This function is not suitable for plotting very large whole genealogical trees.
 #' Consider using [plot_grviz()] if you want to see an entire tree.
 #'
