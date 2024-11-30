@@ -70,7 +70,7 @@ plot_gg <- function(g, max_anc = 3L, max_des = 3L, id = NULL, col = "red") {
 
   rlang::check_installed("ggenealogy", reason = "in order to produce ggenealogy plots.")
 
-  pc <- get_parent_child(g)
+  pc <- get_parent_child(g, g[[as.character(id)]][["name"]], max_anc, max_des)
 
   ggenealogy::plotAncDes(g[[as.character(id)]][["name"]], pc, mAnc = max_anc, mDes = max_des, vColor = col)
 }
