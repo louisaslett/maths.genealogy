@@ -4,7 +4,7 @@
 \alias{plot_gg}
 \title{Plot genealogical tree with \code{ggenealogy}}
 \usage{
-plot_gg(g, max_anc = 3L, max_des = 3L, id = NULL, col = "red")
+plot_gg(g, max_anc = 3L, max_des = 3L, id = NULL, col = "red", expand = 0.15)
 }
 \arguments{
 \item{g}{an object of class \code{genealogy}, as returned by \code{\link[=get_genealogy]{get_genealogy()}}.}
@@ -18,6 +18,10 @@ By default this is \code{NULL} which will use the first ID that was supplied to 
 Note that the ID must be one of the IDs searched when calling \code{\link[=get_genealogy]{get_genealogy()}} to construct \code{g}, since the search for ancestors/descendants only goes directly up/down branches reachable from the initial search ID.}
 
 \item{col}{a \code{character(1)} specifying the colour to highlight the mathematician one whom the graph is centred.}
+
+\item{expand}{a \code{numeric(1)} with the expansion factor for the graph.
+This defaults to \code{0.15}, with larger values causing the \code{x} axis to expand, smaller values for it to shrink.
+This is useful if the nearest common ancestor has a long name, which may cause it to be clipped when plotting: increase this expansion factor to rectify this.}
 }
 \value{
 An object of class \verb{("gg", "ggplot")} which can be displayed, or further manipulated using additional layers or aesthetic modifications from the \code{\link[ggplot2:ggplot2-package]{ggplot2}} package.
