@@ -132,6 +132,14 @@ get_genealogy <- function(id, ancestors = TRUE, descendants = TRUE) {
     ws[["close"]]()
     cli::cli_abort(c(x = "Error on WebSocket connection: {event}"))
   })
+  on_close <- function(event) {
+    if (!get("done", envir = parent.env(environment()))) {
+      assign("done", TRUE, envir = parent.env(environment()))
+      assign("err", TRUE, envir = parent.env(environment()))
+      cli::cli_abort(c(x = "Premature connection closure, code={event[['code']]} ({event[['reason']]}).\n    The geneagrapher backend is most likely unavailable right now.\n    If this error is not transient, please raise an\n      issue at {.url https://github.com/louisaslett/maths.genealogy/issues}"))
+    }
+  }
+  ws[["onClose"]](on_close)
 
   connect_ws(ws)
 

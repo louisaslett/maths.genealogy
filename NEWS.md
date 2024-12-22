@@ -2,6 +2,8 @@
 
 * Add `plot_gg_path()` to create shortest path plots via `ggenealogy`.
 * Add `plot_gg()` to enable `ggenealogy` plots of ancestry local to a mathematician.
+* Create a "Getting Started" vignette.
+* Extra error handling in `get_genealogy()` for premature WebSocket closure.
 
 # maths.genealogy 0.0.1
 
