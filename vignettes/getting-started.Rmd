@@ -108,13 +108,13 @@ plot_grviz(g, "aslett-tree.pdf")
 
 As an alternative, `ggenealogy` is excellent for plotting 'local' genealogy, showing a limited number of ancestral/descendant generations, as follows:
 
-```{r,out.width="100%",fig.width=5}
+```{r,out.width="100%",fig.width=5,fig.dpi=250}
 plot_gg(g)
 ```
 
 You can also control the number of ancestral and descendant generations displayed using `max_anc` and `max_des`:
 
-```{r,out.width="100%",fig.width=7,fig.height=4}
+```{r,out.width="100%",fig.width=7,fig.height=4,fig.dpi=250}
 plot_gg(g, max_anc = 11)
 ```
 
@@ -137,12 +137,48 @@ g <- get_genealogy(c(171971, 108465, 175763, 191788, 169213))
 #> ✔ Sending query [33ms]
 #> ✔ 🎓 Full genealogy retrieved [8.5s]
 ```
+```{r,echo=FALSE}
+g <- readRDS("171971-108465-175763-191788-169213.rds")
+```
+
+Now using the `plot_grviz()` function will plot the *joint* genealogy of the mathematicians specified in the call to `get_genealogy()`.
+
+```{r}
+plot_grviz(g)
+```
+
+It can be difficult from this plot to identify something of common interest when plotting multiple mathematicians: the nearest common ancestor and shortest path between them.
+This can be achieved by using `plot_gg_path()`.
+By default, it will plot the shortest path between the first two mathematicians that were specified in the call to `get_genealogy()` which built the genealogical tree, using the x-axis to indicate the year of graduation.
+
+```{r,out.width="100%",fig.width=6,fig.height=3,fig.dpi=250}
+plot_gg_path(g)
+```
+
+To plot between different mathematicians, one can use the `id1` and `id2` arguments.
+
+```{r,out.width="100%",fig.width=6,fig.height=3,fig.dpi=250}
+plot_gg_path(g, id1 = 175763, id2 = 191788)
+```
+
+Each id defaults to the first and second mathematicians, so if only one is specified, it overrides that entry only.
+
+```{r,out.width="100%",fig.width=6,fig.height=3,fig.dpi=250}
+plot_gg_path(g, id1 = 169213)
+```
+
+The above plot includes a common ancestor with a particularly long name (`r "Weierstra\U00DF"`).
+Issues like this can be resolved by increasing the value of the `expand` argument above the default, which is 0.15.
+
+```{r,out.width="100%",fig.width=6,fig.height=3,fig.dpi=250}
+plot_gg_path(g, id1 = 169213, expand = 0.25)
+```
 
 
 ## Other software
 
-Development of this software was inspired by the `geneagrapher` Python package (<https://github.com/davidalber/geneagrapher>), and makes use of the WebSocket server run by `https://github.com/davidalber/geneagrapher-core` (<https://github.com/davidalber/geneagrapher-core>).
-Permission to query this endpoint was requested and granted in advance (<https://github.com/davidalber/geneagrapher/issues/38>).
+Development of this software was inspired by the `geneagrapher` Python package (<https://github.com/davidalber/geneagrapher>) and makes use of the WebSocket server running `geneagrapher-core` (<https://github.com/davidalber/geneagrapher-core>), which was designed to cache queries to the MGP to reduce the load on their main site.
+Permission to query the caching endpoint from this R package was [requested and granted in advance](https://github.com/davidalber/geneagrapher/issues/38).
 
 ## References {#refs}
 
