@@ -4,3 +4,7 @@
 ^\.lintr$
 ^R/hex\.R$
 ^inst/.*\.png$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

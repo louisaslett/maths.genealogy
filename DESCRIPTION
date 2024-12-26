@@ -9,7 +9,7 @@ Description: Query, extract, and plot genealogical data from The Mathematics
     Genealogy Project <https://mathgenealogy.org/>. Data is gathered from the
     WebSocket server run by the 'geneagrapher-core' project
     <https://github.com/davidalber/geneagrapher-core>. 
-URL: https://github.com/louisaslett/maths.genealogy
+URL: https://genealogy.louisaslett.com/, https://github.com/louisaslett/maths.genealogy
 BugReports: https://github.com/louisaslett/maths.genealogy/issues
 Depends: 
     R (>= 4.1.0)
