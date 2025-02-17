@@ -97,7 +97,26 @@ Consider using <code><a href="plot_grviz.html">plot_grviz()</a></code> if you wa
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># TODO</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># First, you need to use search_id() to find the mathematician ID for the</span></span></span>
+<span class="r-in"><span><span class="co"># individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look</span></span></span>
+<span class="r-in"><span><span class="co"># up in the browser.</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># For example, the package author would get their own tree using</span></span></span>
+<span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_genealogy.html">get_genealogy</a></span><span class="op">(</span><span class="fl">171971</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server <span style="color: #B2B2B2;">[299ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Sending query</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Sending query <span style="color: #B2B2B2;">[5ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> 🎓 Fetching PhD data ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> 🎓 Full genealogy retrieved <span style="color: #B2B2B2;">[344ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Then use the plot_gg() function to use the underlying ggenealogy package</span></span></span>
+<span class="r-in"><span><span class="fu">plot_gg</span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="plot_gg-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

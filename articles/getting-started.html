@@ -65,7 +65,36 @@ Durham University</h4>
 
     
     
-<p>The Mathematics Genealogy Project (MGP), available at <a href="https://mathgenealogy.org/" class="external-link uri">https://mathgenealogy.org/</a>, is an online platform
+<div id="warning-container">
+
+</div>
+<script>
+  // Check if served by R-universe, which does not display vignette properly
+  function checkDomain() {
+    // Get the current hostname
+    const hostname = window.location.hostname;
+
+    // Check if the hostname includes 'r-universe.dev'
+    if (hostname.includes('r-universe.dev')) {
+      // Create a warning box
+      const warningBox = document.createElement('div');
+      warningBox.style.backgroundColor = '#ffcccc'; // light red
+      warningBox.style.color = '#d8000c'; // red text
+      warningBox.style.border = '1px solid #d8000c';
+      warningBox.style.padding = '10px';
+      warningBox.style.margin = '20px 0';
+      warningBox.style.borderRadius = '5px';
+      warningBox.innerHTML = "<strong>Note:</strong> you appear to be viewing this vignette on R-universe. For some reason, this vignette does not display properly when embedded within the R-universe site, so it is recommended to view either within the RStudio Viewer or at the main package website here: <a href='https://genealogy.louisaslett.com/articles/getting-started.html'>https://genealogy.louisaslett.com/articles/getting-started.html</a>";
+
+      // Show in warning-container
+      const container = document.getElementById('warning-container');
+      container.appendChild(warningBox);
+    }
+  }
+
+  // Call the function when the page loads
+  window.onload = checkDomain;
+</script><p>The Mathematics Genealogy Project (MGP), available at <a href="https://mathgenealogy.org/" class="external-link uri">https://mathgenealogy.org/</a>, is an online platform
 dedicated to compiling the academic ancestry of mathematicians. Its
 mission is to create a comprehensive resource that tracks the
 intellectual lineage of individuals in the field of mathematics (broadly
@@ -176,9 +205,7 @@ simply provide a file name as the second argument:</p>
 ‘local’ genealogy, showing a limited number of ancestral/descendant
 generations, as follows:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_gg.html">plot_gg</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
-<span><span class="co">#&gt;   object 'type_sum.accel' not found</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_gg.html">plot_gg</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></code></pre></div>
 <p><img src="getting-started_files/figure-html/unnamed-chunk-8-1.png" width="100%"></p>
 <p>You can also control the number of ancestral and descendant
 generations displayed using <code>max_anc</code> and

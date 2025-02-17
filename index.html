@@ -58,14 +58,17 @@
 <img src="logo.png" class="logo" alt=""><h1 id="id_-mathsgenealogy-r-package-">📦 <code>{maths.genealogy}</code> R package <a class="anchor" aria-label="anchor" href="#id_-mathsgenealogy-r-package-"></a>
 </h1>
 </div>
-<p><a href="https://www.repostatus.org/#wip" class="external-link"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a> <a href="https://www.gnu.org/licenses/gpl-2.0.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat" alt="license"></a> <a href="https://cran.r-project.org/package=maths.genealogy" class="external-link"><img src="https://www.r-pkg.org/badges/version/maths.genealogy" alt="metacran version"></a> <a href="https://cran.r-project.org/package=maths.genealogy" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/maths.genealogy" alt="metacran downloads"></a> <a href="https://louisaslett.r-universe.dev/maths.genealogy" class="external-link"><img src="https://louisaslett.r-universe.dev/badges/maths.genealogy" alt="mlmc status badge"></a></p>
+<p><a href="https://www.repostatus.org/#active" class="external-link"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a> <a href="https://www.gnu.org/licenses/gpl-2.0.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat" alt="license"></a> <a href="https://cran.r-project.org/package=maths.genealogy" class="external-link"><img src="https://www.r-pkg.org/badges/version/maths.genealogy" alt="metacran version"></a> <a href="https://cran.r-project.org/package=maths.genealogy" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/maths.genealogy" alt="metacran downloads"></a> <a href="https://louisaslett.r-universe.dev/maths.genealogy" class="external-link"><img src="https://louisaslett.r-universe.dev/badges/maths.genealogy" alt="mlmc status badge"></a></p>
 <p>Search for mathematicians on the <a href="https://mathgenealogy.org/" class="external-link">Mathematics Genealogy Project</a> and pull full ancestor and/or descendent academic genealogical data. The latter functionality is possible thanks to the WebSocket server run by <a href="https://github.com/davidalber" class="external-link">@davidalber</a>, which we access directly <a href="https://github.com/davidalber/geneagrapher/issues/38" class="external-link">with kind permission</a>. The package also provides functionality to export these genealogical datasets to different plotting environments.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Once the package reaches beta quality, it will be available to install from R-universe, and once it is of release quality will be submitted to CRAN.</p>
-<p>In the mean time, you can install the development version direct from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>The package binary can currently be installed from R-universe:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"maths.genealogy"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://louisaslett.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Once the package is ready for release, it will also be submitted to CRAN. If you find a problem, please help me get ready for CRAN by <a href="https://github.com/louisaslett/maths.genealogy/issues" class="external-link">submitting an issue on Github</a>!</p>
+<p>Alternatively, you can install the development version direct from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"louisaslett/maths.genealogy"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -73,11 +76,25 @@
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>The first task is to identify the ID of the mathematician(s) you would like to build the genealogical data for. For the author of this package, that would be:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://genealogy.louisaslett.com/">"maths.genealogy"</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/search_id.html">search_id</a></span><span class="op">(</span><span class="st">"Aslett"</span>, <span class="st">"Louis"</span><span class="op">)</span></span></code></pre></div>
-<p>TODO: add further examples as extra functions built</p>
+<p>Then, one would retrieve the full genealogical tree, using the id identified in the search:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_genealogy.html">get_genealogy</a></span><span class="op">(</span><span class="fl">171971</span><span class="op">)</span></span></code></pre></div>
+<p>The simplest thing would then be to plot the whole genealogical tree:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/plot_grviz.html">plot_grviz</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></code></pre></div>
+<p>Note you can also plot a shared genealogical tree by passing a vector of ids to <code><a href="reference/get_genealogy.html">get_genealogy()</a></code>. So to see the shared genealogy of the package author and his former postdoc supervisor:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_genealogy.html">get_genealogy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">96119</span>, <span class="fl">171971</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">plot_gzviz</span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></code></pre></div>
+<p>This can be interesting to see where the trees share commonality and link together. To just hone in on the shortest path:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/plot_gg_path.html">plot_gg_path</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></code></pre></div>
+<p>All the above functions take various options (see their documentation), so that for example more than two ids can be passed to <code><a href="reference/get_genealogy.html">get_genealogy()</a></code> and then selective shortest path pairs be plotted with <code><a href="reference/plot_gg_path.html">plot_gg_path()</a></code> using appropriate function arguments.</p>
+<p>For a slightly longer introduction, please see the <a href="https://genealogy.louisaslett.com/articles/getting-started.html">Getting Started vignette</a></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

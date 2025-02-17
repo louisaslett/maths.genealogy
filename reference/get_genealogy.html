@@ -99,7 +99,30 @@ In other words, the <code>id</code> argument as passed to this function.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># TODO</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># First, you need to use search_id() to find the mathematician ID for the</span></span></span>
+<span class="r-in"><span><span class="co"># individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look</span></span></span>
+<span class="r-in"><span><span class="co"># up in the browser. Once you have these IDs the get_genealogy() function will</span></span></span>
+<span class="r-in"><span><span class="co"># retrieve the genealogical tree.</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># For example, to find the package author would search for themselves using</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="search_id.html">search_id</a></span><span class="op">(</span><span class="st">"Aslett"</span>, <span class="st">"Louis"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       id          name              university year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 171971 Aslett, Louis Trinity College, Dublin 2012</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Then, use the id to retrieve the genealogy</span></span></span>
+<span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">get_genealogy</span><span class="op">(</span><span class="fl">171971</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server <span style="color: #B2B2B2;">[394ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Sending query</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Sending query <span style="color: #B2B2B2;">[5ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> 🎓 Fetching PhD data ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> 🎓 Full genealogy retrieved <span style="color: #B2B2B2;">[623ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># With that genealogy, you can then plot using plot_grviz() or other plotting</span></span></span>
+<span class="r-in"><span><span class="co"># functions.</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
