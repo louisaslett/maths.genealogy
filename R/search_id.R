@@ -116,7 +116,7 @@ search_id <- function(family = NULL, given = NULL, middle = NULL, university = N
   ids <- rvest::html_attr(links, "href") |>
     sub(".*id=(\\d+).*", "\\1", x = _) |>
     stats::na.omit()
-  names <- rvest::html_text(links)
+  nm <- rvest::html_text(links)
 
   universities <- rvest::html_elements(html, "#paddingWrapper td:nth-child(2)") |>
     rvest::html_text()
@@ -126,7 +126,7 @@ search_id <- function(family = NULL, given = NULL, middle = NULL, university = N
 
   data.frame(
     id = ids,
-    name = names,
+    name = nm,
     university = universities,
     year = years
   )

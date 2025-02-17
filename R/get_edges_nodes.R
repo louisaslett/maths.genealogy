@@ -4,9 +4,9 @@ get_edges_nodes <- function(g) {
   edges_to <- list()
   nodes <- vector("character")
 
-  start <- attr(g, "start_nodes", exact = TRUE)
+  s <- attr(g, "start_nodes", exact = TRUE)
   # Descendants
-  queue <- as.character(start)
+  queue <- as.character(s)
   seen <- vector("character") # safety valve ... ancestry loops should theoretically be impossible, but ...!
   while (length(queue) > 0L) {
     if (queue[[1L]] %in% seen) {
@@ -38,7 +38,7 @@ get_edges_nodes <- function(g) {
   }
 
   # Ancestors
-  queue <- as.character(start)
+  queue <- as.character(s)
   seen <- setdiff(seen, queue)
   while (length(queue) > 0L) {
     if (queue[[1L]] %in% seen) {
@@ -69,7 +69,7 @@ get_edges_nodes <- function(g) {
     edges_to <- c(edges_to, list(rep(x[["id"]], length(advisors))))
   }
 
-  return(list(nodes = nodes[!duplicated(nodes)],
-              edges = data.frame(from = c(edges_from, recursive = TRUE, use.names = FALSE),
-                                 to = c(edges_to, recursive = TRUE, use.names = FALSE))))
+  list(nodes = nodes[!duplicated(nodes)],
+       edges = data.frame(from = c(edges_from, recursive = TRUE, use.names = FALSE),
+                          to = c(edges_to, recursive = TRUE, use.names = FALSE)))
 }

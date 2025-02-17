@@ -46,12 +46,12 @@ plot_grviz <- function(g, file = "") {
   check_str(file, 0L)
 
   # What mode are we operating in?
-  if (nchar(file) == 0L) {
-    # interactive plot
-    rlang::check_installed(c("DiagrammeR", "DiagrammeRsvg", "svgPanZoom"), reason = "in order to produce Graphviz plots in RStudio Viewer.")
-  } else {
+  if (nzchar(file)) {
     # write to pdf
     rlang::check_installed(c("DiagrammeR", "DiagrammeRsvg", "rsvg"), reason = "in order to write Graphviz plots to pdf.")
+  } else {
+    # interactive plot
+    rlang::check_installed(c("DiagrammeR", "DiagrammeRsvg", "svgPanZoom"), reason = "in order to produce Graphviz plots in RStudio Viewer.")
   }
 
   # Make the graph
@@ -70,24 +70,22 @@ digraph {
   dot <- paste0(dot, "}\n")
 
   grv <- DiagrammeR::grViz(dot)
-  svg <- DiagrammeRsvg::export_svg(grv)
+  svg_res <- DiagrammeRsvg::export_svg(grv)
 
   # Either output to viewer or write to file
-  if (nchar(file) == 0L) {
-    # interactive plot
-    res <- svgPanZoom::svgPanZoom(svg, minZoom = 1.0, maxZoom = 20.0, viewBox = FALSE, width = "100%", height = "92vh")
-  } else {
+  if (nzchar(file)) {
     # write to pdf
     rlang::try_fetch(
-      {
-        rsvg::rsvg_pdf(charToRaw(svg), file = file)
-      },
+      rsvg::rsvg_pdf(charToRaw(svg_res), file = file),
       error = function(e) {
         cli::cli_abort(c(x = "Unable to write Graphviz tree to PDF file"),
                        parent = e)
       }
     )
     res <- normalizePath(file)
+  } else {
+    # interactive plot
+    res <- svgPanZoom::svgPanZoom(svg_res, minZoom = 1.0, maxZoom = 20.0, viewBox = FALSE, width = "100%", height = "92vh")
   }
   return(res)
 }

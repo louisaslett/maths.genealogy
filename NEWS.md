@@ -5,7 +5,8 @@
 * Create a "Getting Started" vignette.
 * Extra error handling in `get_genealogy()` for premature WebSocket closure.
 * Add {pkgdown} site.
-* Create warning for vignette viewed on R-universe. For some reason the embedded graphviz does not work, see <https://github.com/r-universe-org/help/discussions/554>
+* Create warning for vignette viewed on R-universe. For some reason the embedded graphviz does not work, see <https://github.com/r-universe-org/help/discussions/554>.
+* Changes to satisfy new lintr rules.
 
 # maths.genealogy 0.0.1
 

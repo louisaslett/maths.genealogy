@@ -47,8 +47,8 @@ connect_ws <- function(ws, timeout = 4L) {
   cli::cli_progress_update()
 
   connected <- FALSE
-  end <- Sys.time() + timeout
-  while (!connected && Sys.time() < end) {
+  e <- Sys.time() + timeout
+  while (!connected && Sys.time() < e) {
     later::run_now(0.05)
 
     ready_state <- ws[["readyState"]]()

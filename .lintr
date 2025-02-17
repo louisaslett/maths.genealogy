@@ -1,3 +1,3 @@
 linters: all_linters(packages = "lintr", line_length_linter = NULL) # see vignette("lintr")
 encoding: "UTF-8"
-exclusions: list("renv", "packrat") # see ?lintr::exclude
+exclusions: list("renv", "packrat", "vignettes") # see ?lintr::exclude
