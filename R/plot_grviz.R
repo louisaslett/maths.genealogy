@@ -31,7 +31,15 @@
 #' @export
 #'
 #' @examples
-#' # TODO
+#' # First, you need to use search_id() to find the mathematician ID for the
+#' # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
+#' # up in the browser.
+#'
+#' # For example, the package author would get their own tree using
+#' g <- get_genealogy(171971)
+#'
+#' # Then use the plot_grviz() function to produce a full genealogical tree
+#' plot_grviz(g)
 plot_grviz <- function(g, file = "") {
   # Check inputs and for required packages
   check_genealogy(g)

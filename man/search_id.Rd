@@ -54,10 +54,11 @@ New data can be submitted by following the instructions in the "How to submit up
 }
 \examples{
 # Search for the package author
-ids <- search_id("Aslett", "Louis")
+search_id("Aslett", "Louis")
 
-# Then use this to fetch genealogy (just descendants for speed)
-# TODO
+# You may find it easier to directly use the https://mathgenealogy.org/
+# website, and extract the "id" from the URL on the page for the mathematician
+# of interest.
 }
 \references{
 Jackson, A. (2007). “A Labor of Love: The Mathematics Genealogy Project”, \emph{Notices of the AMS}, \strong{54}(8), 1002-1003. \url{https://www.ams.org/notices/200708/tx070801002p.pdf}

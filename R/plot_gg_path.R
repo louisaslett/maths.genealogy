@@ -33,8 +33,17 @@
 #' @export
 #'
 #' @examples
-#' # TODO
+#' # First, you need to use search_id() to find the mathematician ID for the
+#' # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
+#' # up in the browser.
 #'
+#' # For example, to find the shortest genealogical path between the package
+#' # author and my former postdoc supervisor, I would start by querying using
+#' # both mathematician IDs
+#' g <- get_genealogy(c(96119, 171971))
+#'
+#' # Then use the plot_gg_path() function to use the underlying ggenealogy package
+#' plot_gg_path(g)
 plot_gg_path <- function(g, id1 = NULL, id2 = NULL, expand = 0.15) {
   # Check inputs and for required packages
   check_genealogy(g)

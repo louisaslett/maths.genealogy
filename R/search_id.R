@@ -44,10 +44,11 @@
 #'
 #' @examples
 #' # Search for the package author
-#' ids <- search_id("Aslett", "Louis")
+#' search_id("Aslett", "Louis")
 #'
-#' # Then use this to fetch genealogy (just descendants for speed)
-#' # TODO
+#' # You may find it easier to directly use the https://mathgenealogy.org/
+#' # website, and extract the "id" from the URL on the page for the mathematician
+#' # of interest.
 search_id <- function(family = NULL, given = NULL, middle = NULL, university = NULL, year = NULL, thesis_keyword = NULL, country = NULL, discipline = NULL) {
   # Input checks
   if (all(vapply(list(family, given, middle, university, year, thesis_keyword, country, discipline), is.null, TRUE))) {

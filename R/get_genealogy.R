@@ -38,7 +38,19 @@
 #' @export
 #'
 #' @examples
-#' # TODO
+#' # First, you need to use search_id() to find the mathematician ID for the
+#' # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
+#' # up in the browser. Once you have these IDs the get_genealogy() function will
+#' # retrieve the genealogical tree.
+#'
+#' # For example, to find the package author would search for themselves using
+#' search_id("Aslett", "Louis")
+#'
+#' # Then, use the id to retrieve the genealogy
+#' g <- get_genealogy(171971)
+#'
+#' # With that genealogy, you can then plot using plot_grviz() or other plotting
+#' # functions.
 get_genealogy <- function(id, ancestors = TRUE, descendants = TRUE) {
   ## Input checks
   # id
