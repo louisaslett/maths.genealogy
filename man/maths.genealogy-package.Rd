@@ -13,6 +13,7 @@ Query, extract, and plot genealogical data from The Mathematics Genealogy Projec
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://genealogy.louisaslett.com/}
   \item \url{https://github.com/louisaslett/maths.genealogy}
   \item Report bugs at \url{https://github.com/louisaslett/maths.genealogy/issues}
 }

@@ -4,6 +4,8 @@
 * Add `plot_gg()` to enable `ggenealogy` plots of ancestry local to a mathematician.
 * Create a "Getting Started" vignette.
 * Extra error handling in `get_genealogy()` for premature WebSocket closure.
+* Add {pkgdown} site.
+* Create warning for vignette viewed on R-universe. For some reason the embedded graphviz does not work, see <https://github.com/r-universe-org/help/discussions/554>
 
 # maths.genealogy 0.0.1
 

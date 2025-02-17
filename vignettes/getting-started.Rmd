@@ -15,6 +15,35 @@ knitr::opts_chunk$set(
 )
 ```
 
+<div id="warning-container"></div>
+<script>
+  // Check if served by R-universe, which does not display vignette properly
+  function checkDomain() {
+    // Get the current hostname
+    const hostname = window.location.hostname;
+
+    // Check if the hostname includes 'r-universe.dev'
+    if (hostname.includes('r-universe.dev')) {
+      // Create a warning box
+      const warningBox = document.createElement('div');
+      warningBox.style.backgroundColor = '#ffcccc'; // light red
+      warningBox.style.color = '#d8000c'; // red text
+      warningBox.style.border = '1px solid #d8000c';
+      warningBox.style.padding = '10px';
+      warningBox.style.margin = '20px 0';
+      warningBox.style.borderRadius = '5px';
+      warningBox.innerHTML = "<strong>Note:</strong> you appear to be viewing this vignette on R-universe. For some reason, this vignette does not display properly when embedded within the R-universe site, so it is recommended to view either within the RStudio Viewer or at the main package website here: <a href='https://genealogy.louisaslett.com/articles/getting-started.html'>https://genealogy.louisaslett.com/articles/getting-started.html</a>";
+
+      // Show in warning-container
+      const container = document.getElementById('warning-container');
+      container.appendChild(warningBox);
+    }
+  }
+
+  // Call the function when the page loads
+  window.onload = checkDomain;
+</script>
+
 The Mathematics Genealogy Project (MGP), available at <https://mathgenealogy.org/>, is an online platform dedicated to compiling the academic ancestry of mathematicians.
 Its mission is to create a comprehensive resource that tracks the intellectual lineage of individuals in the field of mathematics (broadly interpreted) by collecting and organising information about their PhD degrees, advisors, and students.
 The project provides access to this genealogical data through their website, enabling researchers and enthusiasts to explore the connections and relationships within the mathematics community.
