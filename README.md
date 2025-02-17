@@ -1,6 +1,6 @@
 # 📦 `{maths.genealogy}` R package <img src="man/figures/logo.png" align="right" height="278" alt="" />
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![license](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![metacran version](https://www.r-pkg.org/badges/version/maths.genealogy)](https://cran.r-project.org/package=maths.genealogy)
 [![metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/maths.genealogy)](https://cran.r-project.org/package=maths.genealogy)
@@ -12,9 +12,16 @@ The package also provides functionality to export these genealogical datasets to
 
 ## Installation
 
-Once the package reaches beta quality, it will be available to install from R-universe, and once it is of release quality will be submitted to CRAN.
+The package binary can currently be installed from R-universe:
 
-In the mean time, you can install the development version direct from [GitHub](https://github.com/) with:
+``` r
+install.packages("maths.genealogy", repos = c("https://louisaslett.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+Once the package is ready for release, it will also be submitted to CRAN.
+If you find a problem, please help me get ready for CRAN by [submitting an issue on Github](https://github.com/louisaslett/maths.genealogy/issues)!
+
+Alternatively, you can install the development version direct from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
@@ -32,4 +39,33 @@ library("maths.genealogy")
 search_id("Aslett", "Louis")
 ```
 
-TODO: add further examples as extra functions built
+Then, one would retrieve the full genealogical tree, using the id identified in the search:
+
+``` r
+g <- get_genealogy(171971)
+```
+
+The simplest thing would then be to plot the whole genealogical tree:
+
+``` r
+plot_grviz(g)
+```
+
+Note you can also plot a shared genealogical tree by passing a vector of ids to `get_genealogy()`.
+So to see the shared genealogy of the package author and his former postdoc supervisor:
+
+``` r
+g <- get_genealogy(c(96119, 171971))
+plot_gzviz(g)
+```
+
+This can be interesting to see where the trees share commonality and link together.
+To just hone in on the shortest path:
+
+``` r
+plot_gg_path(g)
+```
+
+All the above functions take various options (see their documentation), so that for example more than two ids can be passed to `get_genealogy()` and then selective shortest path pairs be plotted with `plot_gg_path()` using appropriate function arguments.
+
+For a slightly longer introduction, please see the [Getting Started vignette](https://genealogy.louisaslett.com/articles/getting-started.html)

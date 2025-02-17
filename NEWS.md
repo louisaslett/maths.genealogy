@@ -7,6 +7,7 @@
 * Add {pkgdown} site.
 * Create warning for vignette viewed on R-universe. For some reason the embedded graphviz does not work, see <https://github.com/r-universe-org/help/discussions/554>.
 * Changes to satisfy new lintr rules.
+* `README` finished up.
 
 # maths.genealogy 0.0.1
 
