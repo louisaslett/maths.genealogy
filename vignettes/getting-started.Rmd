@@ -32,7 +32,7 @@ knitr::opts_chunk$set(
       warningBox.style.padding = '10px';
       warningBox.style.margin = '20px 0';
       warningBox.style.borderRadius = '5px';
-      warningBox.innerHTML = "<strong>Note:</strong> you appear to be viewing this vignette on R-universe. For some reason, this vignette does not display properly when embedded within the R-universe site, so it is recommended to view either within the RStudio Viewer or at the main package website here: <a href='https://genealogy.louisaslett.com/articles/getting-started.html'>https://genealogy.louisaslett.com/articles/getting-started.html</a>";
+      warningBox.innerHTML = "<strong>Note:</strong> you appear to be viewing this vignette on R-universe. For some reason, this vignette does not display properly when embedded within the R-universe site, so it is recommended to view either within the RStudio Viewer or at the main package website here: <a href='https://genealogy.louisaslett.com/articles/getting-started.html' target='_top'>https://genealogy.louisaslett.com/articles/getting-started.html</a>";
 
       // Show in warning-container
       const container = document.getElementById('warning-container');
