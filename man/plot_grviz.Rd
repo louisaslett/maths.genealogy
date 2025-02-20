@@ -4,7 +4,7 @@
 \alias{plot_grviz}
 \title{Plot genealogical tree with Graphviz}
 \usage{
-plot_grviz(g, file = "")
+plot_grviz(g, file = "", max_zoom = 200)
 }
 \arguments{
 \item{g}{an object of class \code{genealogy}, as returned by \code{\link[=get_genealogy]{get_genealogy()}}.}
@@ -12,6 +12,10 @@ plot_grviz(g, file = "")
 \item{file}{an optional file name.
 If the file name is specified, then Graphviz will render the genealogical tree to PDF and save in this file.
 If the file name is not specified, then the plot will be rendered interactively in the RStudio Viewer panel.}
+
+\item{max_zoom}{a \code{numeric(1)} with the maximum zoom factor when plotting in the Viewer.
+If trees are particularly deep or wide, the default maximum zoom of 200x may be insufficient, in which case a value larger than 200 should be supplied.
+This option has no effect when plotting to a file.}
 }
 \value{
 If a filename was specified, the full path of the saved file is returned as a \code{character(1)} string.

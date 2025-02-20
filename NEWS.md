@@ -1,3 +1,7 @@
+# maths.genealogy 0.1.1
+
+* Add `max_zoom` argument to `plot_grviz()` to enable increasing default maximum zoom when plotting particularly deep or wide trees. Fixes issue <https://github.com/louisaslett/maths.genealogy/issues/1>.
+
 # maths.genealogy 0.1.0
 
 * Add `plot_gg_path()` to create shortest path plots via `ggenealogy`.

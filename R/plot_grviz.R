@@ -23,6 +23,10 @@
 #'        an optional file name.
 #'        If the file name is specified, then Graphviz will render the genealogical tree to PDF and save in this file.
 #'        If the file name is not specified, then the plot will be rendered interactively in the RStudio Viewer panel.
+#' @param max_zoom
+#'        a `numeric(1)` with the maximum zoom factor when plotting in the Viewer.
+#'        If trees are particularly deep or wide, the default maximum zoom of 200x may be insufficient, in which case a value larger than 200 should be supplied.
+#'        This option has no effect when plotting to a file.
 #'
 #' @return
 #' If a filename was specified, the full path of the saved file is returned as a `character(1)` string.
@@ -40,7 +44,7 @@
 #'
 #' # Then use the plot_grviz() function to produce a full genealogical tree
 #' plot_grviz(g)
-plot_grviz <- function(g, file = "") {
+plot_grviz <- function(g, file = "", max_zoom = 200.0) {
   # Check inputs and for required packages
   check_genealogy(g)
   check_str(file, 0L)
@@ -52,6 +56,12 @@ plot_grviz <- function(g, file = "") {
   } else {
     # interactive plot
     rlang::check_installed(c("DiagrammeR", "DiagrammeRsvg", "svgPanZoom"), reason = "in order to produce Graphviz plots in RStudio Viewer.")
+
+    # only check max_zoom argument when plotting interactively
+    err <- checkmate::check_number(max_zoom, lower = 1.0, finite = TRUE)
+    if (!identical(err, TRUE)) {
+      cli::cli_abort(c(x = "{.arg max_zoom} argument: {err}"))
+    }
   }
 
   # Make the graph
@@ -85,7 +95,7 @@ digraph {
     res <- normalizePath(file)
   } else {
     # interactive plot
-    res <- svgPanZoom::svgPanZoom(svg_res, minZoom = 1.0, maxZoom = 20.0, viewBox = FALSE, width = "100%", height = "92vh")
+    res <- svgPanZoom::svgPanZoom(svg_res, minZoom = 1.0, maxZoom = max_zoom, viewBox = FALSE, width = "100%", height = "92vh")
   }
   return(res)
 }
