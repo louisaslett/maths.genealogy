@@ -12,7 +12,7 @@ Description: Query, extract, and plot genealogical data from The Mathematics
 URL: https://genealogy.louisaslett.com/, https://github.com/louisaslett/maths.genealogy
 BugReports: https://github.com/louisaslett/maths.genealogy/issues
 Depends: 
-    R (>= 4.1.0)
+    R (>= 4.2.0)
 Imports: 
     checkmate,
     cli,
