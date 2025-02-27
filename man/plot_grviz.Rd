@@ -41,7 +41,7 @@ g <- get_genealogy(171971)
 plot_grviz(g)
 }
 \references{
-Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) \emph{Graph Drawing Software, Mathematics and Visualization}, 127-148. \href{https://doi.org/10.1007/978-3-642-18638-7_6}{10.1007/978-3-642-18638-7_6}.
+Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) \emph{Graph Drawing Software, Mathematics and Visualization}, 127-148. \doi{10.1007/978-3-642-18638-7_6}.
 
 Iannone, R. and Roy, O. (2024). \emph{DiagrammeR: Graph/Network Visualization}. R package, \url{https://CRAN.R-project.org/package=DiagrammeR}.
 

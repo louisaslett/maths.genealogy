@@ -1,5 +1,5 @@
 Package: maths.genealogy
-Title: Mathematics Genealogy Data
+Title: Mathematics PhD Genealogy Data and Plotting
 Version: 0.1.1
 Authors@R: 
     person("Louis", "Aslett", role = c("aut", "cre"),

@@ -1,6 +1,7 @@
 # maths.genealogy 0.1.1
 
 * Add `max_zoom` argument to `plot_grviz()` to enable increasing default maximum zoom when plotting particularly deep or wide trees. Fixes issue <https://github.com/louisaslett/maths.genealogy/issues/1>.
+* Additional tidying following final checks before first CRAN submission.
 
 # maths.genealogy 0.1.0
 

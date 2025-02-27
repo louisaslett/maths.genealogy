@@ -12,16 +12,19 @@ The package also provides functionality to export these genealogical datasets to
 
 ## Installation
 
-The package binary can currently be installed from R-universe:
+The stable binary release can be install from CRAN:
+
+``` r
+install.packages("maths.genealogy")
+```
+
+The latest development binary can be installed from R-universe:
 
 ``` r
 install.packages("maths.genealogy", repos = c("https://louisaslett.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
-Once the package is ready for release, it will also be submitted to CRAN.
-If you find a problem, please help me get ready for CRAN by [submitting an issue on Github](https://github.com/louisaslett/maths.genealogy/issues)!
-
-Alternatively, you can install the development version direct from [GitHub](https://github.com/) with:
+Alternatively, you can install the development version from source on [GitHub](https://github.com/):
 
 ``` r
 # install.packages("pak")

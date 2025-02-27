@@ -7,7 +7,7 @@
 #' The presence of these packages will be verified when the function is actually called, providing an opportunity to install them automatically if needed.
 #'
 #' @references
-#' Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) _Graph Drawing Software, Mathematics and Visualization_, 127-148. [10.1007/978-3-642-18638-7_6](https://doi.org/10.1007/978-3-642-18638-7_6).
+#' Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) _Graph Drawing Software, Mathematics and Visualization_, 127-148. \doi{10.1007/978-3-642-18638-7_6}.
 #'
 #' Iannone, R. and Roy, O. (2024). _DiagrammeR: Graph/Network Visualization_. R package, <https://CRAN.R-project.org/package=DiagrammeR>.
 #'

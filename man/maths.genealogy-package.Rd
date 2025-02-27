@@ -4,7 +4,7 @@
 \name{maths.genealogy-package}
 \alias{maths.genealogy}
 \alias{maths.genealogy-package}
-\title{maths.genealogy: Mathematics Genealogy Data}
+\title{maths.genealogy: Mathematics PhD Genealogy Data and Plotting}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
