@@ -1,13 +1,13 @@
 Package: maths.genealogy
 Title: Mathematics PhD Genealogy Data and Plotting
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Louis", "Aslett", role = c("aut", "cre"),
            email = "louis.aslett@durham.ac.uk",
            comment = c(ORCID = "0000-0003-2211-233X"))
 Description: Query, extract, and plot genealogical data from The Mathematics
     Genealogy Project <https://mathgenealogy.org/>. Data is gathered from the
-    WebSocket server run by the 'geneagrapher-core' project
+    'WebSocket' server run by the 'geneagrapher-core' project
     <https://github.com/davidalber/geneagrapher-core>. 
 URL: https://genealogy.louisaslett.com/, https://github.com/louisaslett/maths.genealogy
 BugReports: https://github.com/louisaslett/maths.genealogy/issues

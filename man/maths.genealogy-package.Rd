@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Query, extract, and plot genealogical data from The Mathematics Genealogy Project \url{https://mathgenealogy.org/}. Data is gathered from the WebSocket server run by the 'geneagrapher-core' project \url{https://github.com/davidalber/geneagrapher-core}.
+Query, extract, and plot genealogical data from The Mathematics Genealogy Project \url{https://mathgenealogy.org/}. Data is gathered from the 'WebSocket' server run by the 'geneagrapher-core' project \url{https://github.com/davidalber/geneagrapher-core}.
 }
 \seealso{
 Useful links:
