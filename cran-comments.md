@@ -1,8 +1,15 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+Duration: 1m 8.3s
 
-This submission is to address the following request from CRAN:
+❯ checking CRAN incoming feasibility ... [4s/25s] NOTE
+  Maintainer: ‘Louis Aslett <louis.aslett@durham.ac.uk>’
+  
+  Days since last update: 3
+
+0 errors | 0 warnings | 1 note
+
+This re-submission so soon is to address the following request from CRAN:
 
 > It seems we need to remind you of the CRAN policy:
 > 
@@ -23,4 +30,6 @@ based on the CRAN Writing R Extensions manual which states:
 > test for [...]'
 
 I believe the functions should trigger an error if the internet resource is
-unavailable, not merely a message. Hence `\donttest{}` seems approriate.
+unavailable, not merely a message. Hence `\donttest{}` seems appropriate as
+full tests of resource availability and correct response would clutter the
+examples.
