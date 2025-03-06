@@ -41,6 +41,9 @@ Queries the genealogy of a single or set of mathematicians by their ID in the \h
 # up in the browser. Once you have these IDs the get_genealogy() function will
 # retrieve the genealogical tree.
 
+# Don't test these as rely on internet resources that can be temporarily
+# unavailable.
+\donttest{
 # For example, to find the package author would search for themselves using
 search_id("Aslett", "Louis")
 
@@ -49,6 +52,7 @@ g <- get_genealogy(171971)
 
 # With that genealogy, you can then plot using plot_grviz() or other plotting
 # functions.
+}
 }
 \references{
 Alber, D. (2024). “'geneagrapher-core' package”, \url{https://github.com/davidalber/geneagrapher-core}

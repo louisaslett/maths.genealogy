@@ -41,11 +41,15 @@
 #' # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
 #' # up in the browser.
 #'
+#' # Don't test these as rely on internet resources that can be temporarily
+#' # unavailable.
+#' \donttest{
 #' # For example, the package author would get their own tree using
 #' g <- get_genealogy(171971)
 #'
 #' # Then use the plot_gg() function to use the underlying ggenealogy package
 #' plot_gg(g)
+#' }
 plot_gg <- function(g, max_anc = 3L, max_des = 3L, id = NULL, col = "red", expand = 0.15) {
   # Check inputs and for required packages
   check_genealogy(g)

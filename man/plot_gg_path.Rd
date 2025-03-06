@@ -38,6 +38,9 @@ If this occurs, increase the \code{expand} argument greater than the default of 
 # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
 # up in the browser.
 
+# Don't test these as rely on internet resources that can be temporarily
+# unavailable.
+\donttest{
 # For example, to find the shortest genealogical path between the package
 # author and my former postdoc supervisor, I would start by querying using
 # both mathematician IDs
@@ -45,6 +48,7 @@ g <- get_genealogy(c(96119, 171971))
 
 # Then use the plot_gg_path() function to use the underlying ggenealogy package
 plot_gg_path(g)
+}
 }
 \references{
 Rutter, L., VanderPlas, S., Cook, D. and Graham, M.A. (2019). “ggenealogy: An R Package for Visualizing Genealogical Data”, \emph{Journal of Statistical Software}, \strong{89}(13), 1-31. \doi{10.18637/jss.v089.i13}.

@@ -34,11 +34,15 @@ The presence of these packages will be verified when the function is actually ca
 # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
 # up in the browser.
 
+# Don't test these as rely on internet resources that can be temporarily
+# unavailable.
+\donttest{
 # For example, the package author would get their own tree using
 g <- get_genealogy(171971)
 
 # Then use the plot_grviz() function to produce a full genealogical tree
 plot_grviz(g)
+}
 }
 \references{
 Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) \emph{Graph Drawing Software, Mathematics and Visualization}, 127-148. \doi{10.1007/978-3-642-18638-7_6}.

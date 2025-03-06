@@ -43,12 +43,16 @@
 #' @export
 #'
 #' @examples
+#' # Don't test these as rely on internet resources that can be temporarily
+#' # unavailable.
+#' \donttest{
 #' # Search for the package author
 #' search_id("Aslett", "Louis")
 #'
 #' # You may find it easier to directly use the https://mathgenealogy.org/
 #' # website, and extract the "id" from the URL on the page for the mathematician
 #' # of interest.
+#' }
 search_id <- function(family = NULL, given = NULL, middle = NULL, university = NULL, year = NULL, thesis_keyword = NULL, country = NULL, discipline = NULL) {
   # Input checks
   if (all(vapply(list(family, given, middle, university, year, thesis_keyword, country, discipline), is.null, TRUE))) {
@@ -111,7 +115,7 @@ search_id <- function(family = NULL, given = NULL, middle = NULL, university = N
 
   links <- rvest::html_elements(html, "#paddingWrapper a")
   if (length(links) == 0L) {
-    cli::cli_abort(c(x = "No matches found for this search."))
+    cli::cli_inform(c(i = "No matches found for this search."))
   }
   ids <- rvest::html_attr(links, "href") |>
     sub(".*id=(\\d+).*", "\\1", x = _) |>

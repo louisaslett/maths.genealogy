@@ -42,11 +42,15 @@ Consider using \code{\link[=plot_grviz]{plot_grviz()}} if you want to see an ent
 # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
 # up in the browser.
 
+# Don't test these as rely on internet resources that can be temporarily
+# unavailable.
+\donttest{
 # For example, the package author would get their own tree using
 g <- get_genealogy(171971)
 
 # Then use the plot_gg() function to use the underlying ggenealogy package
 plot_gg(g)
+}
 }
 \references{
 Rutter, L., VanderPlas, S., Cook, D. and Graham, M.A. (2019). “ggenealogy: An R Package for Visualizing Genealogical Data”, \emph{Journal of Statistical Software}, \strong{89}(13), 1-31. \doi{10.18637/jss.v089.i13}.

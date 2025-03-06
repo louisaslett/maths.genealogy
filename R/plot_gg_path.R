@@ -37,6 +37,9 @@
 #' # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
 #' # up in the browser.
 #'
+#' # Don't test these as rely on internet resources that can be temporarily
+#' # unavailable.
+#' \donttest{
 #' # For example, to find the shortest genealogical path between the package
 #' # author and my former postdoc supervisor, I would start by querying using
 #' # both mathematician IDs
@@ -44,6 +47,7 @@
 #'
 #' # Then use the plot_gg_path() function to use the underlying ggenealogy package
 #' plot_gg_path(g)
+#' }
 plot_gg_path <- function(g, id1 = NULL, id2 = NULL, expand = 0.15) {
   # Check inputs and for required packages
   check_genealogy(g)
