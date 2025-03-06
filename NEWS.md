@@ -1,6 +1,7 @@
 # maths.genealogy 0.1.2
 
 * Correctly quote 'WebSocket' in `DESCRIPTION`.
+* Wrap examples that could fail due to unavailable internet resources in `\donttest{}`.
 
 # maths.genealogy 0.1.1
 
