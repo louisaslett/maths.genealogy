@@ -122,7 +122,10 @@ New data can be submitted by following the instructions in the "How to submit up
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Search for the package author</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Don't test these as rely on internet resources that can be temporarily</span></span></span>
+<span class="r-in"><span><span class="co"># unavailable.</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># Search for the package author</span></span></span>
 <span class="r-in"><span><span class="fu">search_id</span><span class="op">(</span><span class="st">"Aslett"</span>, <span class="st">"Louis"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       id          name              university year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 171971 Aslett, Louis Trinity College, Dublin 2012</span>
@@ -130,6 +133,7 @@ New data can be submitted by following the instructions in the "How to submit up
 <span class="r-in"><span><span class="co"># You may find it easier to directly use the https://mathgenealogy.org/</span></span></span>
 <span class="r-in"><span><span class="co"># website, and extract the "id" from the URL on the page for the mathematician</span></span></span>
 <span class="r-in"><span><span class="co"># of interest.</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

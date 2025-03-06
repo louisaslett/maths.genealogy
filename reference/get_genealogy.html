@@ -104,6 +104,9 @@ In other words, the <code>id</code> argument as passed to this function.</p>
 <span class="r-in"><span><span class="co"># up in the browser. Once you have these IDs the get_genealogy() function will</span></span></span>
 <span class="r-in"><span><span class="co"># retrieve the genealogical tree.</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Don't test these as rely on internet resources that can be temporarily</span></span></span>
+<span class="r-in"><span><span class="co"># unavailable.</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># For example, to find the package author would search for themselves using</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="search_id.html">search_id</a></span><span class="op">(</span><span class="st">"Aslett"</span>, <span class="st">"Louis"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       id          name              university year</span>
@@ -112,17 +115,18 @@ In other words, the <code>id</code> argument as passed to this function.</p>
 <span class="r-in"><span><span class="co"># Then, use the id to retrieve the genealogy</span></span></span>
 <span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">get_genealogy</span><span class="op">(</span><span class="fl">171971</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server <span style="color: #B2B2B2;">[170ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server <span style="color: #B2B2B2;">[259ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Sending query</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Sending query <span style="color: #B2B2B2;">[6ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Sending query <span style="color: #B2B2B2;">[5ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> 🎓 Fetching PhD data ...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> 🎓 Full genealogy retrieved <span style="color: #B2B2B2;">[218ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> 🎓 Full genealogy retrieved <span style="color: #B2B2B2;">[348ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With that genealogy, you can then plot using plot_grviz() or other plotting</span></span></span>
 <span class="r-in"><span><span class="co"># functions.</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
