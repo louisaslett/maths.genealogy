@@ -59,7 +59,7 @@ So to see the shared genealogy of the package author and his former postdoc supe
 
 ``` r
 g <- get_genealogy(c(96119, 171971))
-plot_gzviz(g)
+plot_grviz(g)
 ```
 
 This can be interesting to see where the trees share commonality and link together.
