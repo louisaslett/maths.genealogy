@@ -91,7 +91,7 @@
 <p>Note you can also plot a shared genealogical tree by passing a vector of ids to <code><a href="reference/get_genealogy.html">get_genealogy()</a></code>. So to see the shared genealogy of the package author and his former postdoc supervisor:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_genealogy.html">get_genealogy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">96119</span>, <span class="fl">171971</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu">plot_gzviz</span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/plot_grviz.html">plot_grviz</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></code></pre></div>
 <p>This can be interesting to see where the trees share commonality and link together. To just hone in on the shortest path:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/plot_gg_path.html">plot_gg_path</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></code></pre></div>
