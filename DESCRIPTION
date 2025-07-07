@@ -1,6 +1,6 @@
 Package: maths.genealogy
 Title: Mathematics PhD Genealogy Data and Plotting
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: 
     person("Louis", "Aslett", role = c("aut", "cre"),
            email = "louis.aslett@durham.ac.uk",
