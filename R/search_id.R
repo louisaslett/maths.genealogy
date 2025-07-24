@@ -42,17 +42,13 @@
 #'
 #' @export
 #'
-#' @examples
-#' # Don't test these as rely on internet resources that can be temporarily
-#' # unavailable.
-#' \donttest{
+#' @examplesIf interactive() && curl::has_internet()
 #' # Search for the package author
 #' search_id("Aslett", "Louis")
 #'
 #' # You may find it easier to directly use the https://mathgenealogy.org/
 #' # website, and extract the "id" from the URL on the page for the mathematician
 #' # of interest.
-#' }
 search_id <- function(family = NULL, given = NULL, middle = NULL, university = NULL, year = NULL, thesis_keyword = NULL, country = NULL, discipline = NULL) {
   # Input checks
   if (all(vapply(list(family, given, middle, university, year, thesis_keyword, country, discipline), is.null, TRUE))) {
@@ -79,6 +75,9 @@ search_id <- function(family = NULL, given = NULL, middle = NULL, university = N
     discipline <- sprintf("%02d", discipline)
   }
 
+  if (!curl::has_internet()) {
+    cli::cli_abort(c(x = "Internet connection required."))
+  }
   # Query Mathematics Genealogy Project
   rlang::try_fetch(
     {

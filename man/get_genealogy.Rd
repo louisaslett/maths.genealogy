@@ -36,14 +36,12 @@ In other words, the \code{id} argument as passed to this function.
 Queries the genealogy of a single or set of mathematicians by their ID in the \href{https://mathgenealogy.org/}{Mathematics Genealogy Project}.
 }
 \examples{
+\dontshow{if (interactive() && curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # First, you need to use search_id() to find the mathematician ID for the
 # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
 # up in the browser. Once you have these IDs the get_genealogy() function will
 # retrieve the genealogical tree.
 
-# Don't test these as rely on internet resources that can be temporarily
-# unavailable.
-\donttest{
 # For example, to find the package author would search for themselves using
 search_id("Aslett", "Louis")
 
@@ -52,7 +50,7 @@ g <- get_genealogy(171971)
 
 # With that genealogy, you can then plot using plot_grviz() or other plotting
 # functions.
-}
+\dontshow{\}) # examplesIf}
 }
 \references{
 Alber, D. (2024). “'geneagrapher-core' package”, \url{https://github.com/davidalber/geneagrapher-core}

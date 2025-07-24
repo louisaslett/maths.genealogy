@@ -30,19 +30,17 @@ They are only "Suggests" dependencies as this package supports multiple plotting
 The presence of these packages will be verified when the function is actually called, providing an opportunity to install them automatically if needed.
 }
 \examples{
+\dontshow{if (interactive() && curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # First, you need to use search_id() to find the mathematician ID for the
 # individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look
 # up in the browser.
 
-# Don't test these as rely on internet resources that can be temporarily
-# unavailable.
-\donttest{
 # For example, the package author would get their own tree using
 g <- get_genealogy(171971)
 
 # Then use the plot_grviz() function to produce a full genealogical tree
 plot_grviz(g)
-}
+\dontshow{\}) # examplesIf}
 }
 \references{
 Ellson, J., Gansner, E.R., Koutsofios, E., North, S.C. and Woodhull, G. (2004). “Graphviz and Dynagraph — Static and Dynamic Graph Drawing Tools”. In: Jünger, M., Mutzel, P. (eds) \emph{Graph Drawing Software, Mathematics and Visualization}, 127-148. \doi{10.1007/978-3-642-18638-7_6}.

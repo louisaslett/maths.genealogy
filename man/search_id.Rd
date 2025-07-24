@@ -53,16 +53,14 @@ If you cannot find the individual you are looking for, it could be that they are
 New data can be submitted by following the instructions in the "How to submit updates" section at \url{https://mathgenealogy.org/submit.php}.
 }
 \examples{
-# Don't test these as rely on internet resources that can be temporarily
-# unavailable.
-\donttest{
+\dontshow{if (interactive() && curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Search for the package author
 search_id("Aslett", "Louis")
 
 # You may find it easier to directly use the https://mathgenealogy.org/
 # website, and extract the "id" from the URL on the page for the mathematician
 # of interest.
-}
+\dontshow{\}) # examplesIf}
 }
 \references{
 Jackson, A. (2007). “A Labor of Love: The Mathematics Genealogy Project”, \emph{Notices of the AMS}, \strong{54}(8), 1002-1003. \url{https://www.ams.org/notices/200708/tx070801002p.pdf}

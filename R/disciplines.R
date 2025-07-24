@@ -15,19 +15,15 @@
 #'
 #' @export
 #'
-#' @examples
+#' @examplesIf interactive() && curl::has_internet()
 #' # Lookup the ID of any discipline involving the partial word "stat"
 #' disciplines("stat")
 #'
 #' # Use a regular expression to only exactly match the whole word Statistics and nothing else
 #' disciplines("^statistics$")
 #'
-#' # Don't test next line as relies on internet resources that can be temporarily
-#' # unavailable.
-#' \donttest{
 #' # Use the above to search only for statisticians with the first name Louis
 #' search_id(given = "Louis", discipline = disciplines("^statistics$")$id)
-#' }
 disciplines <- function(search = NULL) {
   check_str(search, 1L)
 

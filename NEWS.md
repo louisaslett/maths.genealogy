@@ -1,3 +1,7 @@
+# maths.genealogy 0.1.4
+
+* Revamp all examples using recommendations at <https://blog.thecoatlessprofessor.com/programming/r/api-packages-and-cran-requirements/> to avoid problems with CRAN which apparently will still occasionally run `\donttest{}` code.
+
 # maths.genealogy 0.1.3
 
 * Catch stray example that could fail due to unavailable internet resources in `\donttest{}`.
