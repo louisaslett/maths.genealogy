@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">maths.genealogy</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Plot genealogical tree with <code>ggenealogy</code></h1>
-      <small class="dont-index">Source: <a href="https://github.com/louisaslett/maths.genealogy/blob/v0.1.3/R/plot_gg.R" class="external-link"><code>R/plot_gg.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/louisaslett/maths.genealogy/blob/master/R/plot_gg.R" class="external-link"><code>R/plot_gg.R</code></a></small>
       <div class="d-none name"><code>plot_gg.Rd</code></div>
     </div>
 
@@ -98,29 +98,17 @@ Consider using <code><a href="plot_grviz.html">plot_grviz()</a></code> if you wa
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># First, you need to use search_id() to find the mathematician ID for the</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive() &amp;&amp; curl::has_internet()</span></span></span>
+<span class="r-in"><span><span class="co"># First, you need to use search_id() to find the mathematician ID for the</span></span></span>
 <span class="r-in"><span><span class="co"># individual(s) you wish to plot, or visit https://mathgenealogy.org/ to look</span></span></span>
 <span class="r-in"><span><span class="co"># up in the browser.</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Don't test these as rely on internet resources that can be temporarily</span></span></span>
-<span class="r-in"><span><span class="co"># unavailable.</span></span></span>
-<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># For example, the package author would get their own tree using</span></span></span>
 <span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_genealogy.html">get_genealogy</a></span><span class="op">(</span><span class="fl">171971</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="font-style: italic;">geneagrapher-core</span> WebSocket server <span style="color: #B2B2B2;">[234ms]</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Sending query</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Sending query <span style="color: #B2B2B2;">[5ms]</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> 🎓 Fetching PhD data ...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> 🎓 Full genealogy retrieved <span style="color: #B2B2B2;">[310ms]</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Then use the plot_gg() function to use the underlying ggenealogy package</span></span></span>
 <span class="r-in"><span><span class="fu">plot_gg</span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="plot_gg-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
